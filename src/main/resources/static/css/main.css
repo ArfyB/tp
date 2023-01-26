@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../pics/main.jpg");
+}
+
+/*특정 hmtl을 수평수직 중앙에 오는것*/
+
+.wrap {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-size: 10rem;
+}
+
+.lg-text {
+  font-size: 2rem;
+  font-weight: bold;
+  /*간격뛰우기*/
+  margin-bottom: 5px;
+}
+
+.sm-text {
+  font-size: 1.5rem;
+}
+
+#dynamic {
+  position: relative;
+  /*커서 공간만들기*/
+  display: inline-block;
+}
+
+/*깜빡이는 커서 만들기*/
+#dynamic::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+}
+
+#dynamic.active::after {
+  display: none;
+}
+
+.button-4 {
+  background-color: white;
+  font-size: 1rem;
+}
+
+/*박스색*/
+.button-4 {
+  width: 140px;
+  height: 50px;
+  border: 2px solid black;
+  float: left;
+  text-align: center;
+  cursor: pointer; /*포인터 손가락모양으로*/
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0 0 40px 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-90%, 300%);
+
+  outline: none;
+  font-family: arial;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  line-height: 50px;
+  transition: all 0.5s ease;
+  z-index: 2;
+  position: relative;
+
+  background-color: gainsboro;
+  font-size: 1rem;
+}
+
+.eff-4 {
+  width: 140px;
+  height: 50px;
+  left: -140px;
+  background: brown;
+  position: absolute;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+/* 효과 */
+.button-4:hover .eff-4 {
+  left: 0;
+}
+
+/* 커서 올릴시 글자 색*/
+.button-4:hover a {
+  color: #fff;
+}
+
+/* 버튼 위치*/
+.button-4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-90%, 300%);
+}
