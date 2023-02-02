@@ -2,15 +2,14 @@ package com.tp.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-@RequestMapping("/main")
+@RequestMapping("/menurec")
 @Controller
 public class MainController 
 {
-	@RequestMapping("/")
+	@RequestMapping("/main")
 	public String main()
 	{
-		return "thymeleaf/main";
+		return "thymeleaf/menurec/main";
 	}
 }
