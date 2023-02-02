@@ -1,7 +1,7 @@
-const join = document.querySelector("#jbtn");
+let join = document.querySelector("#jbtn");
 
-join.addEventListener("click", handleClick, false);
-function handleClick(event) 
+join.addEventListener("click", joinbtn, false);
+function joinbtn(event) 
 {
 	location.href='join'
 }
