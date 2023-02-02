@@ -1,5 +1,6 @@
 @charset "EUC-KR";
 
-body {
+body 
+{
   background-image: url("../pics/main.jpg");
 }
