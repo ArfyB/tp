@@ -1,5 +1,3 @@
-let target = document.querySelector("#dynamic");
-
 let lbtn = document.querySelector('#lbtn');
 
 lbtn.addEventListener("click", login, false);
@@ -7,6 +5,12 @@ function login(event)
 {
 	location.href='../user/login'
 }
+
+
+
+
+
+let target = document.querySelector("#dynamic");
 
 //랜덤으로 계속 리셋하면서 텍스트 띄우기
 function randomString() {

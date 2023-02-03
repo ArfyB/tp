@@ -20,7 +20,7 @@ public class LoginController
 	}
 	
 	@RequestMapping("/find")
-	public String findinfo()
+	public String find()
 	{
 		return "thymeleaf/User/Find";
 	}
