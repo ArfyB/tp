@@ -18,4 +18,10 @@ public class LoginController
 	{
 		return "thymeleaf/User/Join";
 	}
+	
+	@RequestMapping("/find")
+	public String findinfo()
+	{
+		return "thymeleaf/User/Find";
+	}
 }
