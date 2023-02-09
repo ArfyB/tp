@@ -8,15 +8,35 @@
 
 <link rel="stylesheet" href="/css/Login.css" />
 
-<div class='box' id='bx'>
-	<form id='Login_Data'>
+
+<button type='button' id='user'>유저로그인</button> <!-- 이거 누르면 Login_Box에 User_Login 나오게 -->
+<button type='button' id='seller'>판매자로그인</button> <!-- 이거 누르면 Login_Box에 Seller_Login 나오게 -->
+<!-- onclick으로 박스내용 변경 그걸로 하는거같음 -->
+
+<div class='Login_Box' id='lbx'>
+<form id='Sending_Login'>
+
+	<!--  기본적인 유저 로그인 폼  -->
+	<form id = 'User_Login'>
+	<input name='user' type='hidden'>
 		uid<input id='uid' type='text'>
 		<br>
 		pwd<input id='pwd' type='text'>
-		
-		<button type='button'>로그인</button>
 	</form>
 	
+	<!-- 판매자 로그인 폼 -->
+	<form id = 'Seller_Login'>
+	<input name='seller' type='hidden'>
+		uid<input id='uid' type='text'>
+		<br>
+		pwd<input id='pwd' type='text'>
+		<br>
+		번호<input id='1' type='text'>
+	</form>
+	
+	
+	<button type='button'>로그인</button>
+</form>
 	<hr>
 	
 	<button id='fbtn' type='button'>아이디/비밀번호 찾기</button>
