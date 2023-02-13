@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>레시피 추가</title>
+</head>
+<body>
+
+<script src="../js/RecipeAdd.js"></script>
+
+<form id='recipe'>
+	<span class='rtxt'>레시피 제목</span> <input type='text' name='title'>
+	<br>
+	<span class='rtxt'>소개</span> <input type='text' name='content'>
+	<br>
+	<span class='rtxt'>카테고리</span> <input type='text' name='title'>
+	<br>
+	<span class='rtxt'>요리정보</span> <input type='text' name='title'>
+	<br>
+	<input type="file" onchange='readURL(this);' accept="image/*"> <!--  required multiple 여러개 업로드 -->
+	
+	<img id='preview' width='100' height='100'>
+</form>
+
+</body>
+</html>
