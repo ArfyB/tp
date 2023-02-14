@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <mapper namespace="com.tp.Mapper.RecipeMapper">
+        
+        <select id='AllRecipe'
+        resultType='com.tp.Vo.Recipe'>
+        SELECT * FROM recipe
+        </select>
+        
+        <insert id='RecipeAdd'
+        parameterType='com.tp.Vo.Recipe'>
+        INSERT INTO Recipe (rnum, title, info, author, hits, recdate, category, how, catemat, human, time, difficult)
+        values(
+        RNUM_SEQ.NEXTVAL,
+        #{title},
+        #{info},
+        #{author},
+        #{hits},
+        #{recdate},
+        #{category},
+        #{how},
+        #{catemat},
+        #{human},
+        #{time},
+        #{difficult},
+        )
+        </insert>
+        </mapper>
