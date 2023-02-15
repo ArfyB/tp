@@ -19,11 +19,11 @@
         #{hits},
         #{recdate},
         #{category},
-        #{how},
-        #{catemat},
-        #{human},
+        ${how},
+        ${catemat},
+        ${human},
         #{time},
-        #{difficult},
+        #{difficult}
         )
         </insert>
         </mapper>
