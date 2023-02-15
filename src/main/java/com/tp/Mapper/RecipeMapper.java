@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.tp.Vo.Recipe;
 
 @Mapper
-public interface RecipeMapper 
+public interface RecipeMapper
 {
 	public List<Recipe> AllRecipe();
 	public int RecipeAdd(Recipe rec);
