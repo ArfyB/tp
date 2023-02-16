@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>레시피 목록</title>
+</head>
+<body>
+
+[[${recipes}]]
+
+<span th:each="r : ${recipes}">
+	<option>
+		<span class='rnum'>[[${r.rnum}]]</span>
+		<span class='title'>[[${r.title}]]</span>
+		<span class='recdate'>[[${r.recdate}]]</span>
+		
+		<!-- 굳이? -->
+		<span class='author'>[[${r.author}]]</span>
+	</option>
+</span>
+
+</body>
+</html>

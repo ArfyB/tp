@@ -10,7 +10,7 @@
         
         <insert id='RecipeAdd'
         parameterType='com.tp.Vo.Recipe'>
-        INSERT INTO Recipe (rnum, title, info, author, hits, recdate, category, how, catemat, human, time, difficult)
+        INSERT INTO Recipe (rnum, title, info, author, hits, recdate, category, how, catemat, human, time, difficult, racc)
         values(
         RNUM_SEQ.NEXTVAL,
         #{title},
@@ -23,7 +23,8 @@
         ${catemat},
         ${human},
         #{time},
-        #{difficult}
+        #{difficult},
+        #{racc}
         )
         </insert>
         </mapper>

@@ -26,4 +26,5 @@ public class Recipe
 	private String human;		// 몇인분			@
 	private int time;		// 조리시간			@
 	private String difficult;	// 난이도			@
+	private int racc;		// 관리자승인여부
 }
