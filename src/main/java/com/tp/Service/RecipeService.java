@@ -20,6 +20,7 @@ public class RecipeService
 		return AllRec;
 	}
 	
+	
 	public boolean RecipeAdd(Recipe rec)
 	{
 		System.out.println("레시피넘버 int : " + rec.getRnum());
