@@ -6,15 +6,16 @@
 </head>
 <body>
 
-[[${recipes}]]
+[[${pageinfo.list}]]
 
-<span th:each="r : ${recipes}">
+<hr>
+<span th:each="r : ${pageinfo.list}">
 	<option>
 		<span class='rnum'>[[${r.rnum}]]</span>
 		<span class='title'>[[${r.title}]]</span>
 		<span class='recdate'>[[${r.recdate}]]</span>
 		
-		<!-- 굳이? -->
+
 		<span class='author'>[[${r.author}]]</span>
 	</option>
 </span>

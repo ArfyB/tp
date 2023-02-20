@@ -1,6 +1,7 @@
 package com.tp.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,10 @@ public class RecipeService
 	@Autowired
 	public RecipeMapper rm;
 	
-	public List<Recipe> AllRecipe() 
+	public List<Map<String, Object>> AllRecipe() 
 	{
-		List<Recipe> AllRec = rm.AllRecipe();
-		return AllRec;
+		//List<Recipe>
+		return rm.AllRecipe();
 	}
 	
 	
