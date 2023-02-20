@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.tp.Mapper.RecipeMapper;
 import com.tp.Service.RecipeService;
 import com.tp.Vo.Recipe;
 
@@ -24,6 +27,9 @@ public class RecipeController
 {
 	@Autowired
 	public RecipeService rs; 
+	
+	@Autowired
+	public RecipeMapper rm;
 	
 	@RequestMapping("/main")
 	public String main(Model m)
@@ -49,14 +55,13 @@ public class RecipeController
 		return map;
 	}
 	
-	@RequestMapping("/list")
-	public String list(Model m)
+	@RequestMapping("/list/{page}/{row}")
+	public String list(@PathVariable("page")int page, @PathVariable("row")int row, Model m)
 	{
-		PageHelper.startPage(1,1);
+		PageHelper.startPage(page,row);
+		PageInfo <Map<String,Object>> pageinfo = new PageInfo<>(rm.AllRecipe());
 		
-		
-		
-		m.addAttribute("recipes", rs.AllRecipe());
+		m.addAttribute("pageinfo", pageinfo);
 		return "thymeleaf/recipe/RecipeList";
 	}
 }
