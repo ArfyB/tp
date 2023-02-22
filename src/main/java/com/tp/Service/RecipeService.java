@@ -1,11 +1,13 @@
 package com.tp.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageInfo;
 import com.tp.Mapper.RecipeMapper;
 import com.tp.Vo.Recipe;
 
@@ -39,5 +41,30 @@ public class RecipeService
 		
 		int add = rm.RecipeAdd(rec);
 		return add>=1;
+	}
+	
+	public Map<String,Object> pages(PageInfo pageinfo)
+	{
+		Map<String,Object> map = new HashMap<>();
+		
+		 System.out.println();
+		
+		int begin = pageinfo.getPageNum()-2;
+		
+		if(begin<=0)
+		{
+			begin = 1;
+		}
+		
+		int end = pageinfo.getPageNum()+2;
+		if(end>=pageinfo.getNavigateLastPage())
+		{
+			end = pageinfo.getNavigateLastPage();
+		}
+		
+		
+		map.put("begin", begin);
+		map.put("end", end);
+		return map;
 	}
 }
