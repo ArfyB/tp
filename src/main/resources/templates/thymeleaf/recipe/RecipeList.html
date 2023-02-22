@@ -9,16 +9,34 @@
 [[${pageinfo.list}]]
 
 <hr>
+
 <span th:each="r : ${pageinfo.list}">
 	<option>
 		<span class='rnum'>[[${r.rnum}]]</span>
-		<span class='title'>[[${r.title}]]</span>
-		<span class='recdate'>[[${r.recdate}]]</span>
-		
-
-		<span class='author'>[[${r.author}]]</span>
 	</option>
+	<a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}">
+		<option>
+			<span class='title'>[[${r.title}]]</span>
+			<span class='recdate'>[[${r.recdate}]]</span>
+			<span class='author'>[[${r.author}]]</span>
+		</option>
+	</a>
 </span>
+
+<span th:each="r : ${pageinfo.list}">
+	
+</span>
+
+
+[[${pages.end}]]
+
+
+<span th:each="idx,iterStat : ${#numbers.sequence(pages.begin,pages.end)}">
+    <a th:href="@{/recipe/list/{page}/{row}(page=${idx.intValue()},row=1)}" th:text="${idx}"></a>
+</span>
+
+<a href='/recipe/add'><button type='button'>추가</button></a>
+<a href='/recipe/main'><button type='button'>홈</button></a>
 
 </body>
 </html>

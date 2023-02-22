@@ -62,6 +62,14 @@ public class RecipeController
 		PageInfo <Map<String,Object>> pageinfo = new PageInfo<>(rm.AllRecipe());
 		
 		m.addAttribute("pageinfo", pageinfo);
+		m.addAttribute("pages", rs.pages(pageinfo));  // 페이지이동
+		
 		return "thymeleaf/recipe/RecipeList";
+	}
+	
+	@RequestMapping("/detail")
+	public String detail()
+	{
+		return "";
 	}
 }
