@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -18,6 +20,7 @@ import com.tp.Mapper.RecipeMapper;
 import com.tp.Service.RecipeService;
 import com.tp.Vo.Recipe;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -67,9 +70,29 @@ public class RecipeController
 		return "thymeleaf/recipe/RecipeList";
 	}
 	
-	@RequestMapping("/detail")
-	public String detail()
+	@RequestMapping("/detail/{rnum}")
+	public String detail(@PathVariable("rnum") int rnum, Model m)
 	{
-		return "";
+		
+		m.addAttribute("r",rs.GetRecipe(rnum));
+		return "thymeleaf/recipe/RecipeDetail";
 	}
+	
+	@PostMapping("/upload")
+    @ResponseBody
+      public Map<String, Object> upload(@RequestParam("files")MultipartFile[] mfiles,
+                        HttpServletRequest request,				
+                        Recipe rec) 
+      {
+       Map<String, Object> map = new HashMap<>();
+       
+       map.put("mfiles", mfiles);
+       map.put("request", request);
+       map.put("recipe", rec);
+       
+       Map<String, Object> added = new HashMap<>();
+       added.put("added", rs.AddRec(map));
+       
+       return added;
+      }
 }

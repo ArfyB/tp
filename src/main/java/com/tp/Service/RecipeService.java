@@ -1,19 +1,32 @@
 package com.tp.Service;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageInfo;
 import com.tp.Mapper.RecipeMapper;
 import com.tp.Vo.Recipe;
+import com.tp.Vo.RecipePic;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Service
 public class RecipeService 
 {
+	@Autowired
+	ResourceLoader resourceLoader;
+	
 	@Autowired
 	public RecipeMapper rm;
 	
@@ -23,22 +36,15 @@ public class RecipeService
 		return rm.AllRecipe();
 	}
 	
+	public Recipe GetRecipe(int rnum)
+	{
+		int a = rm.uphit(rnum);
+		Recipe r = rm.GetRecipe(rnum);
+		return r;
+	}
 	
 	public boolean RecipeAdd(Recipe rec)
 	{
-		System.out.println("레시피넘버 int : " + rec.getRnum());
-		System.out.println("레시피이름 : " + rec.getTitle());
-		System.out.println("요리소개 : " + rec.getInfo());
-		System.out.println("작성자 : " + rec.getAuthor());
-		System.out.println("조회수 int : " + rec.getHits());
-		System.out.println("작성일 Date : " + rec.getRecdate());
-		System.out.println("카테고리 : " + rec.getCategory());
-		System.out.println("방법 : " + rec.getHow());
-		System.out.println("주재료 : " + rec.getCatemat());
-		System.out.println("인원수 : " + rec.getHuman());
-		System.out.println("조리시간 int : " + rec.getTime());
-		System.out.println("난이도 : " + rec.getDifficult());
-		
 		int add = rm.RecipeAdd(rec);
 		return add>=1;
 	}
@@ -67,4 +73,95 @@ public class RecipeService
 		map.put("end", end);
 		return map;
 	}
+	
+	public boolean AddRec(Map map)
+	   {
+		  MultipartFile[] mfiles = (MultipartFile[]) map.get("mfiles");
+	      HttpServletRequest request = (HttpServletRequest) map.get("request");
+	      Recipe rec = (Recipe) map.get("recipe");
+	      
+	      ServletContext context = request.getServletContext();
+
+	      List<RecipePic> list = new ArrayList<>();
+	      String absolutePath="";
+	         
+	      Resource resource = resourceLoader.getResource("classpath:/static");
+	         
+	      try 
+	      {
+	    	  absolutePath = resource.getFile().getAbsolutePath();
+	    	  if(mfiles.length != 0)
+	    	  {
+	               
+	    		  for(int i=0;i<mfiles.length;i++) 
+	    		  {
+	    			  mfiles[i].transferTo(
+	    					  new File(absolutePath+"/pics/"+mfiles[i].getOriginalFilename()));
+	               
+	    			  RecipePic rp = new RecipePic();
+	    			  rp.setFname(mfiles[i].getOriginalFilename());
+	    			  rec.setRpic(mfiles[i].getOriginalFilename());
+	    			  
+	               
+	    			  list.add(rp);
+	    		  }
+	    		rec.setRpic(mfiles[0].getOriginalFilename());
+	    		int add = rm.RecipeAdd(rec);
+	            //int b = rm.RecPicAdd(list);
+	            
+	         }
+	            
+	            return true;
+	            
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	            return false;
+	         }
+	      /*
+	      여러개 업로드
+	      MultipartFile[] mfiles = (MultipartFile[]) map.get("mfiles");
+	      HttpServletRequest request = (HttpServletRequest) map.get("request");
+	      Recipe rec = (Recipe) map.get("recipe");
+	      
+	      ServletContext context = request.getServletContext();
+
+	      List<RecipePic> list = new ArrayList<>();
+	      String absolutePath="";
+	         
+	      Resource resource = resourceLoader.getResource("classpath:/static");
+	         
+	      try 
+	      {
+	    	  absolutePath = resource.getFile().getAbsolutePath();
+	    	  if(mfiles.length != 0)
+	    	  {
+	               
+	    		  for(int i=0;i<mfiles.length;i++) 
+	    		  {
+	    			  System.out.println("스태틱  " + absolutePath + "/pics/" + mfiles[i].getOriginalFilename());
+	    			  mfiles[i].transferTo(
+	    					  new File(absolutePath+"/pics/"+mfiles[i].getOriginalFilename()));
+	               
+	    			  RecipePic rp = new RecipePic();
+	    			  rp.setFname(mfiles[i].getOriginalFilename());
+	    			  rec.setRpic(mfiles[i].getOriginalFilename());
+	               
+	               
+	    			  list.add(rp);
+	    		  }
+	            
+	            int a = rm.RecipeAdd(rec);
+	            System.out.println(list.get(0));
+	            int b = rm.RecPicAdd(list);
+	            
+	            }
+	            
+	            return true;
+	            
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	            return false;
+	         }
+	         */
+	  }
 }

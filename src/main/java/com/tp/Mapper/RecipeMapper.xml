@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-        <mapper namespace="com.tp.Mapper.RecipeMapper">
+<mapper namespace="com.tp.Mapper.RecipeMapper">
         
         <select id='AllRecipe'
         resultType='com.tp.Vo.Recipe'>
@@ -10,7 +10,7 @@
         
         <insert id='RecipeAdd'
         parameterType='com.tp.Vo.Recipe'>
-        INSERT INTO Recipe (rnum, title, info, author, hits, recdate, category, how, catemat, human, time, difficult, racc)
+        INSERT INTO Recipe (rnum, title, info, author, hits, recdate, category, how, catemat, human, time, difficult, racc, rpic)
         values(
         RNUM_SEQ.NEXTVAL,
         #{title},
@@ -19,12 +19,25 @@
         #{hits},
         #{recdate},
         #{category},
-        ${how},
-        ${catemat},
-        ${human},
+        #{how},
+        #{catemat},
+        #{human},
         #{time},
         #{difficult},
-        #{racc}
+        #{racc},
+        #{rpic}
         )
         </insert>
-        </mapper>
+        
+        <select id = 'GetRecipe'
+        resultType='com.tp.Vo.Recipe'
+        parameterType='Integer'>
+        SELECT * FROM recipe where rnum=#{rnum}
+        </select>
+        
+        <update id='uphit'
+        parameterType='Integer'>
+        UPDATE recipe SET hits = hits + 1 WHERE rnum=#{rnum}
+        </update>
+        
+</mapper>
