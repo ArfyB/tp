@@ -36,10 +36,28 @@ public class RecipeService
 		return rm.AllRecipe();
 	}
 	
-	public Recipe GetRecipe(int rnum)
+	public Recipe GetUphitRecipe(int rnum)
 	{
 		int a = rm.uphit(rnum);
 		Recipe r = rm.GetRecipe(rnum);
+		return r;
+	}
+	
+	public Recipe GetRecipe(int rnum)
+	{
+		Recipe r = rm.GetRecipe(rnum);
+		return r;
+	}
+	
+	public List<Recipe> GetRecipeHit()
+	{
+		List<Recipe> r = rm.GetRecipeHit();
+		return r;
+	}
+	
+	public List<Recipe> GetRecipeRnum()
+	{
+		List<Recipe> r = rm.GetRecipeRnum();
 		return r;
 	}
 	
@@ -90,6 +108,7 @@ public class RecipeService
 	      try 
 	      {
 	    	  absolutePath = resource.getFile().getAbsolutePath();
+	    	  System.out.println(absolutePath);
 	    	  if(mfiles.length != 0)
 	    	  {
 	               

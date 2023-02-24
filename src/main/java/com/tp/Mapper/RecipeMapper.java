@@ -15,5 +15,7 @@ public interface RecipeMapper
 	public int RecipeAdd(Recipe rec);
 	public int RecPicAdd(List<RecipePic> list);
 	public Recipe GetRecipe(int rnum);
+	public List<Recipe> GetRecipeHit();
+	public List<Recipe> GetRecipeRnum();
 	public int uphit(int rnum);
 }

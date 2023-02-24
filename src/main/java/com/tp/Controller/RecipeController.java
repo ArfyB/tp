@@ -1,6 +1,7 @@
 package com.tp.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ public class RecipeController
 	public String main(Model m)
 	{
 		Map<String,Object> a = new HashMap<>();
-		m.addAttribute("1", a);
-		
+		m.addAttribute("recipeh", rs.GetRecipeHit());
+		m.addAttribute("reciper", rs.GetRecipeRnum());
 		return "thymeleaf/recipe/RecipeMain";
 	}
 	
@@ -74,7 +75,7 @@ public class RecipeController
 	public String detail(@PathVariable("rnum") int rnum, Model m)
 	{
 		
-		m.addAttribute("r",rs.GetRecipe(rnum));
+		m.addAttribute("r",rs.GetUphitRecipe(rnum));
 		return "thymeleaf/recipe/RecipeDetail";
 	}
 	

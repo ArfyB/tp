@@ -28,12 +28,24 @@
 </span>
 
 <hr>
+
+
+<a href='/recipe/list/1/2'><button type='button'><<</button></a>
+
 <span th:each="idx,iterStat : ${#numbers.sequence(pages.begin,pages.end)}">
-    <a th:href="@{/recipe/list/{page}/{row}(page=${idx.intValue()},row=3)}" th:text="${idx}"></a>
+    <a th:href="@{/recipe/list/{page}/{row}(page=${idx.intValue()},row=2)}" th:text="${idx}"></a>
 </span>
+
+<a th:href='@{/recipe/list/__${#strings.toString(pageinfo.pages)}__/2}'><button type='button'>>></button></a>
+
+
+<hr>
 
 <a href='/recipe/add'><button type='button'>추가</button></a>
 <a href='/recipe/main'><button type='button'>홈</button></a>
+
+<hr>
+
 
 </body>
 </html>

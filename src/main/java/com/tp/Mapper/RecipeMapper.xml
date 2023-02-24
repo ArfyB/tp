@@ -5,7 +5,7 @@
         
         <select id='AllRecipe'
         resultType='com.tp.Vo.Recipe'>
-        SELECT * FROM recipe
+        SELECT * FROM recipe  order by rnum DESC
         </select>
         
         <insert id='RecipeAdd'
@@ -39,5 +39,15 @@
         parameterType='Integer'>
         UPDATE recipe SET hits = hits + 1 WHERE rnum=#{rnum}
         </update>
+        
+        <select id = 'GetRecipeHit'
+        resultType='com.tp.Vo.Recipe'>
+        SELECT * FROM (SELECT * FROM recipe ORDER BY hits DESC) WHERE <![CDATA[ ROWNUM <= 3 ]]>
+        </select>
+        
+        <select id = 'GetRecipeRnum'
+        resultType='com.tp.Vo.Recipe'>
+        SELECT * FROM (SELECT * FROM recipe ORDER BY rnum DESC) WHERE <![CDATA[ ROWNUM <= 5 ]]>
+        </select>
         
 </mapper>
