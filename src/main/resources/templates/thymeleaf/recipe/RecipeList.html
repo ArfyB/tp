@@ -11,16 +11,16 @@
 <hr>
 
 <span th:each="r : ${pageinfo.list}">
-	<option>
+
 		<span class='rnum'>[[${r.rnum}]]</span>
-	</option>
+		
 	<a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}">
-		<option>
 			<span class='title'>[[${r.title}]]</span>
+	</a>
+	
 			<span class='recdate'>[[${r.recdate}]]</span>
 			<span class='author'>[[${r.author}]]</span>
-		</option>
-	</a>
+			
 </span>
 
 <span th:each="r : ${pageinfo.list}">

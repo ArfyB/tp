@@ -1,7 +1,6 @@
 package com.tp.Service;
 
 import java.io.File;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,56 +13,56 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageInfo;
-import com.tp.Mapper.RecipeMapper;
-import com.tp.Vo.Recipe;
+import com.tp.Mapper.BoardMapper;
+import com.tp.Vo.Board;
 import com.tp.Vo.RecipePic;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-public class RecipeService 
+public class BoardService 
 {
 	@Autowired
 	ResourceLoader resourceLoader;
 	
 	@Autowired
-	public RecipeMapper rm;
+	public BoardMapper bm;
 	
 	public List<Map<String, Object>> AllRecipe() 
 	{
 		//List<Recipe>
-		return rm.AllRecipe();
+		return bm.AllBoard();
 	}
 	
-	public Recipe GetUphitRecipe(int rnum)
+	public Board GetUphitBoard(int bnum)
 	{
-		int a = rm.uphit(rnum);
-		Recipe r = rm.GetRecipe(rnum);
-		return r;
+		int a = bm.uphit(bnum);
+		Board b = bm.GetBoard(bnum);
+		return b;
 	}
 	
-	public Recipe GetRecipe(int rnum)
+	public Board GetBoard(int bnum)
 	{
-		Recipe r = rm.GetRecipe(rnum);
-		return r;
+		Board b = bm.GetBoard(bnum);
+		return b;
 	}
 	
-	public List<Recipe> GetRecipeHit()
+	public List<Board> GetBoardHit()
 	{
-		List<Recipe> r = rm.GetRecipeHit();
-		return r;
+		List<Board> b = bm.GetBoardHit();
+		return b;
 	}
 	
-	public List<Recipe> GetRecipeRnum()
+	public List<Board> GetBoardBnum()
 	{
-		List<Recipe> r = rm.GetRecipeRnum();
-		return r;
+		List<Board> b = bm.GetBoardBnum();
+		return b;
 	}
 	
-	public boolean RecipeAdd(Recipe rec)
+	public boolean BoardAdd(Board brd)
 	{
-		int add = rm.RecipeAdd(rec);
+		int add = bm.BoardAdd(brd);
 		return add>=1;
 	}
 	
@@ -92,23 +91,20 @@ public class RecipeService
 		return map;
 	}
 	
-	public boolean AddRec(Map map)
+	public boolean AddBrd(Map map)
 	   {
 		  MultipartFile[] mfiles = (MultipartFile[]) map.get("mfiles");
 	      HttpServletRequest request = (HttpServletRequest) map.get("request");
-	      Recipe rec = (Recipe) map.get("recipe");
-	      
-	      java.util.Date utilDate = new java.util.Date(); // 현재시간을 java.util.Date 객체로 가져옴
-	      rec.setRecdate(new java.sql.Date(utilDate.getTime())); 
+	      Board rec = (Board) map.get("recipe");
 	      
 	      ServletContext context = request.getServletContext();
 
 	      List<RecipePic> list = new ArrayList<>();
 	      String absolutePath="";
-
+	         
 	      Resource resource = resourceLoader.getResource("classpath:/static");
-
-	      try
+	         
+	      try 
 	      {
 	    	  absolutePath = resource.getFile().getAbsolutePath();
 	    	  System.out.println(absolutePath);
@@ -117,19 +113,18 @@ public class RecipeService
 	               
 	    		  for(int i=0;i<mfiles.length;i++) 
 	    		  {
-	    			  
 	    			  mfiles[i].transferTo(
 	    					  new File(absolutePath+"/pics/"+mfiles[i].getOriginalFilename()));
 	               
 	    			  RecipePic rp = new RecipePic();
 	    			  rp.setFname(mfiles[i].getOriginalFilename());
-	    			  rec.setRpic(mfiles[i].getOriginalFilename());
+	    			  rec.setBpic(mfiles[i].getOriginalFilename());
 	    			  
 	               
 	    			  list.add(rp);
 	    		  }
-	    		rec.setRpic(mfiles[0].getOriginalFilename());
-	    		int add = rm.RecipeAdd(rec);
+	    		rec.setBpic(mfiles[0].getOriginalFilename());
+	    		int add = bm.BoardAdd(rec);
 	            //int b = rm.RecPicAdd(list);
 	            
 	         }

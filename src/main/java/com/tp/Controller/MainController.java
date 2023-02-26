@@ -10,6 +10,6 @@ public class  MainController
 	@RequestMapping("/main")
 	public String main()
 	{
-		return "thymeleaf/MenuRecSerive/Main";
+		return "thymeleaf/menurec/main";
 	}
 }

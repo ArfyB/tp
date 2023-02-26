@@ -18,7 +18,8 @@
 난이도 : [[${r.difficult}]]
 <br>
 
-조리시간 : 
+조리시간 :
+<th:block th:if="${r.time == 0}">미입력</th:block>
 <th:block th:if="${r.time == 1}">5분이내</th:block>
 <th:block th:if="${r.time == 2}">10분이내</th:block>
 <th:block th:if="${r.time == 3}">20분이내</th:block>
@@ -28,9 +29,14 @@
 
 <br>
 
+<img th:src="@{'/pics/'+ ${r.rpic} }" width='200' height='200'></div>
+
+<br>
+
 <a href='/recipe/main'><button type='button'>홈</button></a>
 <a href='/recipe/list/1/1'><button type='button'>목록</button></a>
 <a th:href="@{/recipe/delete/{rnum}(rnum=${r.rnum})}"><button type='button'>삭제</button></a>
+
 
 
 </body>

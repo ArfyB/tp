@@ -8,5 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MenuRecController
 {
     @RequestMapping("/main")
-    public String Main(){return "thyleaf/main/MenuRecSerive";}
+    public String Main()
+    {
+    	return "thyleaf/main/MenuRecSerive";
+    }
 }
