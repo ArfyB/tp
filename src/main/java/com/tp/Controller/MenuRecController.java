@@ -4,12 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/menurec")
-public class  MainController
+@RequestMapping("/menur")
+public class MenuRecController
 {
-	@RequestMapping("/main")
-	public String main()
-	{
-		return "thymeleaf/MenuRecSerive/Main";
-	}
+    @RequestMapping("/main")
+    public String Main(){return "thyleaf/main/MenuRecSerive";}
 }
