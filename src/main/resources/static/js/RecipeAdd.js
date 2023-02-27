@@ -11,23 +11,37 @@ function readURL(input) {
 	}
 }
 
+
+
+
 $(function()
 {
 	$('#upbtn').on('click', function(event)  // upbtn 클릭시 해당 이벤트 발생
 	{
 		event.preventDefault();
 		
-		var form = $('#recipe')[0]			// 레시피 폼 데이터를 form이라고 명명
-		var data = new FormData(form);		// form을 FormData로 변환
+		var form = document.getElementById('recipe')			// 레시피 폼 데이터를 form이라고 명명
+		var formData = new FormData(form);		// form을 FormData로 변환
+		var materials = [];
+
+  		for (var i = 1; i <= 2; i++) 
+  		{
+    		var mname = formData.get('mname_1_' + i);
+    		var weigh = formData.get('weigh_1_' + i)
+    		var material = { mname : mname, weigh : weigh };
+    		materials.push(material);
+  		}
+		
+		console.log(materials);
 		
 		$('#upbtn').prop('disabled', true);	// upbtn버튼 비활성화     연속적인 버튼클릭시 서버에 대한 공격이 될 가능성
 		
-		$.ajax								// ajax코드
+		$.ajax						// ajax코드
 		({
 			type : 'post',
 			enctype : 'multipart/form-data',// 파일 업로드를 위한 mutipart/form-data 
 			url : '/recipe/upload',	
-			data : data,
+			data : formData,
 			processData : false,
 			contentType : false,
 			cache : false,
@@ -38,7 +52,7 @@ $(function()
 				$('#upbtn').prop('disabled', false);
 				if(res.added)
 				{
-					href=''
+					href='/recipe/main'
 				}
 			},
 			error : function(e)
