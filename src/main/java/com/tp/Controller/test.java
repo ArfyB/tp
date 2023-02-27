@@ -30,7 +30,23 @@ public class test
 	{
 		List<Material> materials = data.get("materials");
 		
+		for (int i = 0; i<=5; i++)
+		{
+			if(materials.get(i).getMname()==null || materials.get(i).getMname()=="")
+			{
+				
+			}
+			else
+			{
+				System.out.println(i+"번");
+			}
+		}
+		System.out.println(materials.get(0).getMname());
 		System.out.println(materials.get(1).getMname());
+		System.out.println(materials.get(2).getMname());
+		System.out.println(materials.get(3).getMname());
+		System.out.println(materials.get(4).getMname());
+		System.out.println(materials.get(5).getMname());
 		
 		Map<String,Object> a = new HashMap<>();
 		a.put("added", true);

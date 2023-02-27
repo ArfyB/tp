@@ -3,12 +3,13 @@ function submitForm() {
   var formData = new FormData(form);
   var materials = [];
 
-  for (var i = 1; i <= 2; i++) {
+  for (var i = 1; i <= 6; i++) {
     var mname = formData.get('mname' + i);
     var material = { mname : mname };
     materials.push(material);
-    
   }
+
+console.log(materials)
 
   var data = { materials : materials };
 
