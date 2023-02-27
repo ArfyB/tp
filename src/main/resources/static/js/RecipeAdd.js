@@ -11,6 +11,42 @@ function readURL(input) {
 	}
 }
 
+var mnum = 1;
+var gnum = 1;
+
+$(function()
+{
+	$('#addmat').on('click', function(event)
+	{
+		event.preventDefault();
+		
+		const list = document.getElementById('MaterialGroup_' + gnum);  // MaterialGroup_1 호출
+		
+		const li = document.createElement('li');
+		li.id = 'liMaterial_'+gnum+"_"+mnum;
+		
+		const input1 = document.createElement('input');
+		input1.type = 'text';
+		input1.id = 'mname_'+gnum;
+		input1.name='mname_'+gnum+'_'+mnum;
+		
+		
+		const input2 = document.createElement('input');
+		input2.type = 'text';
+		input2.id = 'weigh_'+gnum;
+		input2.name='weigh_'+gnum+'_'+mnum;
+		
+		li.append('mname'+mnum);
+		li.append(input1);
+		
+		li.append('weigh'+mnum);
+		li.append(input2);
+		
+		list.append(li);
+		mnum++;
+	})
+})
+
 
 
 $(function()
