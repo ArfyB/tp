@@ -9,40 +9,6 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="../js/RecipeAdd.js"></script>
 
-<script>
-$(function(){
-$('#btnUpload').on('click', function(event) {
-    event.preventDefault();
-    
-    var form = $('#recipe')[0]
-    var data = new FormData(form);
-    
-    $('#btnUpload').prop('disabled', true);
-   
-    $.ajax({
-        type: "POST",
-        enctype: 'multipart/form-data',
-        url: "/recipe/upload",
-        data: data,
-        dataType: 'json',     /* text, json, script, html, xml 등 */
-        processData: false,   /* 디폴트인 Query String 변환 하지 않도록 설정 */
-        contentType: false,   /* 디폴트 "application/x-www-form-urlencoded; charset=UTF-8" */
-        cache: false,
-        timeout: 600000,      /* 시간 제한 없음 */
-        success: function (res) {
-           $('#btnUpload').prop('disabled', false);
-           alert(res.added?"성공":"실패");
-          if(res.added) location.href='/recipe/main';
-        },
-        error: function (e) {
-            $('#btnUpload').prop('disabled', false);
-            alert('fail');
-        }
-    });
-})
-})
-</script>
-
 
 <div> 레시피 등록
 <form id='recipe'>
@@ -155,7 +121,7 @@ $('#btnUpload').on('click', function(event) {
 	
 	<hr>
 	
-	<button type='button'  id='btnUpload'>업로드</button>
+	<button type='button'  id='upbtn'>업로드</button>
 	<a href='main'><button type="button" id="btnUpload">홈</button></a>
 </form>
 </div>

@@ -26,7 +26,7 @@ $(function()
 		({
 			type : 'post',
 			enctype : 'multipart/form-data',// 파일 업로드를 위한 mutipart/form-data 
-			url : '/recipe/add',	
+			url : '/recipe/upload',	
 			data : data,
 			processData : false,
 			contentType : false,
@@ -36,6 +36,10 @@ $(function()
 			{
 				alert(res.added?'성공':'실패')
 				$('#upbtn').prop('disabled', false);
+				if(res.added)
+				{
+					href=''
+				}
 			},
 			error : function(e)
 			{

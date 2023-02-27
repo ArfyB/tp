@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.tp.Mapper.RecipeMapper;
+import com.tp.Mapper.BoardMapper;
 import com.tp.Service.BoardService;
 import com.tp.Vo.Board;
 
@@ -32,7 +32,7 @@ public class BoardController
 	public BoardService bs; 
 	
 	@Autowired
-	public RecipeMapper rm;
+	public BoardMapper bm;
 	
 	@RequestMapping("/main")
 	public String main(Model m)
@@ -62,7 +62,7 @@ public class BoardController
 	public String list(@PathVariable("page")int page, @PathVariable("row")int row, Model m)
 	{
 		PageHelper.startPage(page,row);
-		PageInfo <Map<String,Object>> pageinfo = new PageInfo<>(rm.AllRecipe());
+		PageInfo <Map<String,Object>> pageinfo = new PageInfo<>(bm.AllBoard());
 		
 		m.addAttribute("pageinfo", pageinfo);
 		m.addAttribute("pages", bs.pages(pageinfo));  // 페이지이동

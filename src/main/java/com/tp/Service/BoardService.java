@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.github.pagehelper.PageInfo;
 import com.tp.Mapper.BoardMapper;
 import com.tp.Vo.Board;
+import com.tp.Vo.BoardPic;
 import com.tp.Vo.RecipePic;
 
 import jakarta.servlet.ServletContext;
@@ -95,11 +96,11 @@ public class BoardService
 	   {
 		  MultipartFile[] mfiles = (MultipartFile[]) map.get("mfiles");
 	      HttpServletRequest request = (HttpServletRequest) map.get("request");
-	      Board rec = (Board) map.get("recipe");
+	      Board brd = (Board) map.get("board");
 	      
 	      ServletContext context = request.getServletContext();
 
-	      List<RecipePic> list = new ArrayList<>();
+	      List<BoardPic> list = new ArrayList<>();
 	      String absolutePath="";
 	         
 	      Resource resource = resourceLoader.getResource("classpath:/static");
@@ -110,22 +111,21 @@ public class BoardService
 	    	  System.out.println(absolutePath);
 	    	  if(mfiles.length != 0)
 	    	  {
-	               
 	    		  for(int i=0;i<mfiles.length;i++) 
 	    		  {
 	    			  mfiles[i].transferTo(
 	    					  new File(absolutePath+"/pics/"+mfiles[i].getOriginalFilename()));
 	               
-	    			  RecipePic rp = new RecipePic();
-	    			  rp.setFname(mfiles[i].getOriginalFilename());
-	    			  rec.setBpic(mfiles[i].getOriginalFilename());
+	    			  BoardPic bp = new BoardPic();
+	    			  bp.setFname(mfiles[i].getOriginalFilename());
+	    			  brd.setBpic(mfiles[i].getOriginalFilename());
 	    			  
 	               
-	    			  list.add(rp);
+	    			  list.add(bp);
 	    		  }
-	    		rec.setBpic(mfiles[0].getOriginalFilename());
-	    		int add = bm.BoardAdd(rec);
-	            //int b = rm.RecPicAdd(list);
+	    		  
+	    		int add = bm.BoardAdd(brd);
+	            int b = bm.BrdPicAdd(list);
 	            
 	         }
 	            

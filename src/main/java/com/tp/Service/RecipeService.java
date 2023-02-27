@@ -101,6 +101,24 @@ public class RecipeService
 	      java.util.Date utilDate = new java.util.Date(); // 현재시간을 java.util.Date 객체로 가져옴
 	      rec.setRecdate(new java.sql.Date(utilDate.getTime())); 
 	      
+	      /*
+	      System.out.println(rec.getAuthor());
+	      System.out.println(rec.getCategory());
+	      System.out.println(rec.getCatemat());
+	      System.out.println(rec.getDifficult());
+	      System.out.println(rec.getHits());
+	      System.out.println(rec.getHow());
+	      System.out.println(rec.getHuman());
+	      System.out.println(rec.getInfo());
+	      System.out.println(rec.getRacc());
+	      System.out.println(rec.getRnum());
+	      System.out.println(rec.getRpic());
+	      System.out.println(rec.getTime());
+	      System.out.println(rec.getTitle());
+	      System.out.println(rec.getRecdate());
+	      */
+	      
+	      
 	      ServletContext context = request.getServletContext();
 
 	      List<RecipePic> list = new ArrayList<>();
