@@ -11,43 +11,30 @@ function readURL(input) {
 	}
 }
 
-var mnum = 1;
-var gnum = 1;
 
 $(function()
 {
-	$('#addmat').on('click', function(event)
+	$('#checkbtn').on('click', function(event)
 	{
-		event.preventDefault();
+		var checking = document.getElementById('RecipeMaterials').value;
+		console.log(checking);
 		
-		const list = document.getElementById('MaterialGroup_' + gnum);  // MaterialGroup_1 호출
+		var lines = checking.split('\n');
+		console.log(lines);
 		
-		const li = document.createElement('li');
-		li.id = 'liMaterial_'+gnum+"_"+mnum;
+		var materials = [];
 		
-		const input1 = document.createElement('input');
-		input1.type = 'text';
-		input1.id = 'mname_'+gnum;
-		input1.name='mname_'+gnum+'_'+mnum;
+		for (var i = 0; i < lines.length; i++) {
+  		var parts = lines[i].split('[');
+  		var name = parts[1].slice(0, -1); // 마지막 문자(]) 제거
+  		var data = parts[2];
+		}
 		
-		
-		const input2 = document.createElement('input');
-		input2.type = 'text';
-		input2.id = 'weigh_'+gnum;
-		input2.name='weigh_'+gnum+'_'+mnum;
-		
-		li.append('mname'+mnum);
-		li.append(input1);
-		
-		li.append('weigh'+mnum);
-		li.append(input2);
-		
-		list.append(li);
-		mnum++;
+		console.log("1"+parts);
+		console.log("2"+name);
+		console.log("3"+data);		
 	})
 })
-
-
 
 $(function()
 {
