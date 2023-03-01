@@ -21,18 +21,32 @@ $(function()
 		
 		var lines = checking.split('\n');
 		console.log(lines);
-		
+
+		var names = [];
 		var materials = [];
-		
+
 		for (var i = 0; i < lines.length; i++) {
-  		var parts = lines[i].split('[');
-  		var name = parts[1].slice(0, -1); // 마지막 문자(]) 제거
-  		var data = parts[2];
+  		var parts = lines[i].split('['); // 스테이크] 고기10g, 후추1/2 형식으로 나옴
+  		
+  		var splits = parts[1].split(' '); // 스테이크], 고기10g, 후추1/2 로 나눔
+  		
+  		console.log('parts ' + parts[1]);
+  		
+  		names.push(splits[0].slice(0, -1)); // 스테이크] => 스테이크 names배열에 저장
+  		
+  		
+  		for (var j = 1; j<splits.length; j++)
+  		{
+			console.log('splits'+j+' '+splits[j]);
+			
+			if(j%2==0 & j!=splits.length-1) // 계량값들을 구하되 split을 하기위해 각 재료의 마지막계량은 제외
+			{
+				console.log('계량 ' + splits[j]);
+			}
 		}
-		
-		console.log("1"+parts);
-		console.log("2"+name);
-		console.log("3"+data);		
+  		
+  		}
+  		console.log(names);
 	})
 })
 
