@@ -75,8 +75,11 @@ public class RecipeController
 	@RequestMapping("/detail/{rnum}")
 	public String detail(@PathVariable("rnum") int rnum, Model m)
 	{
-		
-		m.addAttribute("r",rs.GetUphitRecipe(rnum));
+		Recipe r = rs.GetUphitRecipe(rnum);
+		String howtomake = r.getHowtomake().replaceAll("\n", "<br>"); 
+		m.addAttribute("r",r);
+		m.addAttribute("how",howtomake);
+		System.out.println(howtomake);
 		return "thymeleaf/recipe/RecipeDetail";
 	}
 	

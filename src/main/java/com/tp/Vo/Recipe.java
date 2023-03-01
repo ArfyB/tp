@@ -28,4 +28,5 @@ public class Recipe
 	private String difficult;	// 난이도			@
 	private int racc;		// 관리자승인여부
 	private String rpic;	// 레시피 메인사진 이름
+	private String howtomake;
 }
