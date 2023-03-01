@@ -12,9 +12,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Material 
-{
-	private String whatm;
-	private String mname;
-	private String weigh;
+public class Material {
+    private String whatm;
+    private String mname;
+    private String weigh;
 }
