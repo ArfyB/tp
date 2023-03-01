@@ -21,4 +21,6 @@ public class Board
 	private String contents;
 	private java.sql.Date recdate;	// 작성일
 	private String bpic;
+
+	private String comments;
 }

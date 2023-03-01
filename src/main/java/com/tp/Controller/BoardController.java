@@ -68,6 +68,8 @@ public class BoardController
 		m.addAttribute("pages", bs.pages(pageinfo));  // 페이지이동
 		
 		return "thymeleaf/recipe/RecipeList";
+
+
 	}
 	
 	@RequestMapping("/detail/{rnum}")
@@ -94,5 +96,9 @@ public class BoardController
        added.put("added", bs.AddBrd(map));
        
        return added;
-      }
+	  }
+	  /*
+@RequestMapping("/comment")
+	public String comment();
+	return null; */
 }

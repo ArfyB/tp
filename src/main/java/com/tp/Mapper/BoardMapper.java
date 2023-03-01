@@ -18,4 +18,5 @@ public interface BoardMapper
 	public List<Board> GetBoardHit();
 	public List<Board> GetBoardBnum();
 	public int uphit(int bnum);
+    public String comment();
 }

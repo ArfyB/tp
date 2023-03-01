@@ -135,6 +135,7 @@ public class BoardService
 	            e.printStackTrace();
 	            return false;
 	         }
+
 	      /*
 	      여러개 업로드
 	      MultipartFile[] mfiles = (MultipartFile[]) map.get("mfiles");

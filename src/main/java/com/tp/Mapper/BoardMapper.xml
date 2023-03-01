@@ -53,5 +53,16 @@
         resultType='com.tp.Vo.Board'>
         SELECT * FROM (SELECT * FROM board ORDER BY rnum DESC) WHERE <![CDATA[ ROWNUM <= 5 ]]>
         </select>
-        
+
+    <insert id='comment'
+            parameterType='com.tp.Vo.Board'>
+        INSERT INTO Comments (author,content,created_at)
+        values
+            (
+                BNUM_SEQ.NEXTVAL,
+                #{author},
+                #{content},
+                #{created_at}
+            )
+    </insert>
 </mapper>
