@@ -11,45 +11,6 @@ function readURL(input) {
 	}
 }
 
-
-$(function()
-{
-	$('#checkbtn').on('click', function(event)
-	{
-		var checking = document.getElementById('RecipeMaterials').value;
-		console.log(checking);
-		
-		var lines = checking.split('\n');
-		console.log(lines);
-
-		var names = [];
-		var materials = [];
-
-		for (var i = 0; i < lines.length; i++) {
-  		var parts = lines[i].split('['); // 스테이크] 고기10g, 후추1/2 형식으로 나옴
-  		
-  		var splits = parts[1].split(' '); // 스테이크], 고기10g, 후추1/2 로 나눔
-  		
-  		console.log('parts ' + parts[1]);
-  		
-  		names.push(splits[0].slice(0, -1)); // 스테이크] => 스테이크 names배열에 저장
-  		
-  		
-  		for (var j = 1; j<splits.length; j++)
-  		{
-			console.log('splits'+j+' '+splits[j]);
-			
-			if(j%2==0 & j!=splits.length-1) // 계량값들을 구하되 split을 하기위해 각 재료의 마지막계량은 제외
-			{
-				console.log('계량 ' + splits[j]);
-			}
-		}
-  		
-  		}
-  		console.log(names);
-	})
-})
-
 $(function()
 {
 	$('#upbtn').on('click', function(event)  // upbtn 클릭시 해당 이벤트 발생
@@ -57,6 +18,13 @@ $(function()
 		event.preventDefault();
 		
 		$('#upbtn').prop('disabled', true);	// upbtn버튼 비활성화     연속적인 버튼클릭시 서버에 대한 공격이 될 가능성
+		
+		  // textarea의 내용을 가져옵니다.
+  			var message = document.querySelector('textarea[name="howtom"]').value;
+  			// 줄바꿈 문자열을 HTML 태그로 변환합니다.
+  			message = message.replace(/\n/g, '<br>');
+  			// 변환된 내용을 숨겨진 input 필드에 넣어서 전송합니다.
+  			document.querySelector('input[name="howtomake"]').value = message;
 		
 		var form = document.getElementById('recipe');
 		var formData = new FormData(form);
@@ -86,5 +54,6 @@ $(function()
             	alert('fail');
 			}
 		})
+
 	})
 }) 

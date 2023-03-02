@@ -19,6 +19,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tp.Mapper.RecipeMapper;
 import com.tp.Service.RecipeService;
+import com.tp.Vo.Material;
 import com.tp.Vo.Recipe;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -74,8 +75,11 @@ public class RecipeController
 	@RequestMapping("/detail/{rnum}")
 	public String detail(@PathVariable("rnum") int rnum, Model m)
 	{
-		
-		m.addAttribute("r",rs.GetUphitRecipe(rnum));
+		Recipe r = rs.GetUphitRecipe(rnum);
+		String howtomake = r.getHowtomake().replaceAll("\n", "<br>"); 
+		m.addAttribute("r",r);
+		m.addAttribute("how",howtomake);
+		System.out.println(howtomake);
 		return "thymeleaf/recipe/RecipeDetail";
 	}
 	
@@ -83,14 +87,15 @@ public class RecipeController
     @ResponseBody
       public Map<String, Object> upload(@RequestParam("files")MultipartFile[] mfiles,
                         HttpServletRequest request,				
-                        Recipe rec) 
+                        Recipe rec
+                        ) 
       {
        Map<String, Object> map = new HashMap<>();
        
        map.put("mfiles", mfiles);
        map.put("request", request);
        map.put("recipe", rec);
-       
+
        Map<String, Object> added = new HashMap<>();
        added.put("added", rs.AddRec(map));
        
