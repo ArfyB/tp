@@ -39,7 +39,6 @@ public class RecipeController
 	@RequestMapping("/main")
 	public String main(Model m)
 	{
-		Map<String,Object> a = new HashMap<>();
 		m.addAttribute("recipeh", rs.GetRecipeHit());
 		m.addAttribute("reciper", rs.GetRecipeRnum());
 		return "thymeleaf/recipe/RecipeMain";
