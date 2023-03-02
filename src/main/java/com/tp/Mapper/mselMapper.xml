@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tp.Mapper.mselMapper">
+        
+        <insert id='mselAdd'
+        parameterType='com.tp.Vo.RdMenu'>
+        INSERT INTO RdMenu (mg, country, mname)
+        values
+        (
+        #{mg},
+        #{country},
+        #{mname}
+        )
+        </insert>
+        
+        <select id='getrdwithmg'
+        parameterType='com.tp.Vo.RdMenu'
+        resultType='com.tp.Vo.RdMenu'>
+		SELECT * FROM(
+    	SELECT * FROM rdmenu WHERE mg=#{mg} AND country = #{country} ORDER BY DBMS_RANDOM.RANDOM
+		)
+		WHERE <![CDATA[ ROWNUM <= 1 ]]>
+		        
+        </select>
+        
+<!--         
+        <select id='getrd'
+        parameterType='com.tp.Vo.RdMenu'>
+        
+        </select>
+-->   
+</mapper>
