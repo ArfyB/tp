@@ -24,6 +24,17 @@
 		        
         </select>
         
+        
+         <select id='getrd'
+        parameterType='com.tp.Vo.RdMenu'
+        resultType='com.tp.Vo.RdMenu'>
+		SELECT * FROM(
+    	SELECT * FROM rdmenu WHERE country = #{country} ORDER BY DBMS_RANDOM.RANDOM
+		)
+		WHERE <![CDATA[ ROWNUM <= 1 ]]>
+		        
+        </select>
+        
 <!--         
         <select id='getrd'
         parameterType='com.tp.Vo.RdMenu'>

@@ -21,4 +21,9 @@ public class rdmenu
 	{
 		return mm.getrdwithmg(rm);
 	}
+	
+	public RdMenu getrd(RdMenu rm)
+	{
+		return mm.getrd(rm);
+	}
 }

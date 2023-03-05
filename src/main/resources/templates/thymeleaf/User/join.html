@@ -6,40 +6,73 @@
 </head>
 <body>
 
-<link rel="stylesheet" href="/css/Join.css" />
+<!-- <link rel="stylesheet" href="/css/Join.css" /> -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="../js/join.js"></script>
+
 
 <div class='box' id='bx'>
 
-	<form id='Join_Data'>
+	<form id='User_info'>
 	
 		<span class='text'>
 		uid
 		</span>
-		<input id='uid' type='text'> 
-		
-		<button id='i_vrf' class = 'vrf_btn' type='button'>중복검사</button>
+		<input id='uid' name='user_id' type='text'> 
 		
 		<br>
 		
 		<span class='text'>
 		pwd
 		</span>
-		<input id='pwd' type='text'>
+		<input name='password' type='text'>
 		
 		<br>
 		
 		<span class='text'>
-		email
+		age
 		</span>
-		<input id='email' type='text'> 
+		<input name='age' type='number'>
 		
-		<button id='e_vrf' class = 'vrf_btn' type='button'>인증</button>
+		<br>
 		
-		<button type='button'>가입</button>
+		<span class='text'>
+		gender
+		</span>
+		<input type="radio" name='gender' value='남성'>남성
+		<input type="radio" name='gender' value='여성'>여성
+		<input type="radio" name='gender' value='그외' checked>그외
+		
+		<br>
+		
+		<span class='text'>
+		spice
+		</span>
+		<select name='spice'>
+		<option value='약'>약</option>
+		<option value='중'>중</option>
+		<option value='강'>강</option>
+		</select>
+		
+		<br>
+		
+		<span class='text'>
+		ft
+		</span>
+		
+		<select name='country'>
+		<option value='한식'>한식</option>
+		<option value='중식'>중식</option>
+		<option value='일식'>일식</option>
+		<option value='양식'>양식</option>
+		<option value='그외'>그외</option>
+		</select>
+		
+		<br>
+		
+		<button type='button' id='joinbtn'>가입</button>
 	</form>
 </div>
-
-<script src="/js/Join.js"></script>
 
 </body>
 </html>

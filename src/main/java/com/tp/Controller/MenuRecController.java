@@ -46,9 +46,16 @@ public class MenuRecController
     @ResponseBody
     public Map<String, Object> getrdwithmg(RdMenu rd)
     {
-    	String rs = rm.getrdwithmg(rd).getMname();
     	Map<String, Object> map = new HashMap<>();
-    	map.put("rd", rs);
+    	String rs = rd.getMg();
+    	if(rs.equals("전체"))
+    	{
+    		map.put("rd", rm.getrd(rd).getMname());
+    	}
+    	else
+    	{
+    		map.put("rd", rm.getrdwithmg(rd).getMname());
+    	}
     	
     	return map;
     }
