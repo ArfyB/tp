@@ -3,8 +3,6 @@ package com.tp.Controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +13,7 @@ import com.tp.Service.UserService;
 import com.tp.Vo.User_info;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")
@@ -32,11 +31,13 @@ public class LoginController
 
 	@PostMapping("/login")
 	@ResponseBody
-	public Map<String,Object> join1(User_info ui)
+	public Map<String,Object> join1(User_info ui, HttpServletRequest request)
 	{
+		HttpSession session = request.getSession();
 		Map<String,Object> map = new HashMap<>();
 		if(us.dologin(ui))
 		{
+			session.setAttribute("uid", ui.getUser_id());
 			map.put("added", true);
 		}
 		else
