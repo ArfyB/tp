@@ -54,8 +54,8 @@
         SELECT * FROM (SELECT * FROM board ORDER BY rnum DESC) WHERE <![CDATA[ ROWNUM <= 5 ]]>
         </select>
 
-    <insert id='comment'
-            parameterType='com.tp.Vo.Board'>
+    <insert id='GetComment'
+            parameterType='com.tp.Vo.Comment'>
         INSERT INTO Comments (author,content,created_at)
         values
             (

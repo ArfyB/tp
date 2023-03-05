@@ -3,6 +3,7 @@ package com.tp.Mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.tp.Vo.Comment;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.tp.Vo.Board;
@@ -18,5 +19,5 @@ public interface BoardMapper
 	public List<Board> GetBoardHit();
 	public List<Board> GetBoardBnum();
 	public int uphit(int bnum);
-    public String comment();
+    public List<Comment> Comment();
 }

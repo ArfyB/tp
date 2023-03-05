@@ -1,8 +1,10 @@
 package com.tp.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import com.tp.Vo.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +42,7 @@ public class BoardController
 		Map<String,Object> a = new HashMap<>();
 		m.addAttribute("boardh", bs.GetBoardHit());
 		m.addAttribute("boardb", bs.GetBoardBnum());
-		return "thymeleaf/recipe/RecipeMain";
+		return "thymeleaf/board/boardmain";
 	}
 	
 	@GetMapping("/add")
@@ -97,8 +99,12 @@ public class BoardController
        
        return added;
 	  }
-	  /*
-@RequestMapping("/comment")
-	public String comment();
-	return null; */
+
+	@RequestMapping("/comment")
+	@ResponseBody
+	public Map<String, String> getComments() {
+		Map<String, String> comment = new HashMap<>();
+		return comment;
+	}
+
 }
