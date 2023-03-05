@@ -7,16 +7,11 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.tp.Vo.Board;
 import com.tp.Vo.BoardPic;
+import com.tp.Vo.User_info;
 
 @Mapper
 public interface UserMapper
 {
-	public List<Map<String, Object>> AllBoard();
-	public int BoardAdd(Board brd);
-	public int BrdPicAdd(List<BoardPic> list);
-	public Board GetBoard(int bnum);
-	public List<Board> GetBoardHit();
-	public List<Board> GetBoardBnum();
-	public int uphit(int bnum);
-    public String comment();
+	public int UserAdd(User_info ui);
+	public User_info dologin(User_info ui);
 }

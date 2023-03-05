@@ -12,12 +12,12 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class User_info 
+public class User_info
 {
 	private String user_id;
 	private String password;
 	private int age;		// 나이
 	private String gender;	// 성별
-	private String spice;	// 간
+	private String season;	// 간
 	private String country; // foodtype
 }
