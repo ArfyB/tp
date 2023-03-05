@@ -20,7 +20,7 @@ $(function()
 			timeout : 600000,
 			success : function(res)
 			{
-				alert(res.added?'성공':'실패')
+				alert(res.added?'회원가입 성공':'실패')
 				$('#upbtn').prop('disabled', false);
 			},
 			error : function(e)

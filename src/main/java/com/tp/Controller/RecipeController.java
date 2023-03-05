@@ -23,6 +23,7 @@ import com.tp.Vo.Material;
 import com.tp.Vo.Recipe;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -52,8 +53,9 @@ public class RecipeController
 	
 	@PostMapping("/add")
 	@ResponseBody
-	public Map<String,Boolean> add(Recipe rec)
+	public Map<String,Boolean> add(Recipe rec, HttpSession session)
 	{
+		
 		Map<String,Boolean> map = new HashMap<>();
 		map.put("added", rs.RecipeAdd(rec));
 		return map;
@@ -89,7 +91,10 @@ public class RecipeController
                         Recipe rec
                         ) 
       {
+		
        Map<String, Object> map = new HashMap<>();
+       String uid = (String)request.getSession().getAttribute("uid");
+       rec.setAuthor(uid);
        
        map.put("mfiles", mfiles);
        map.put("request", request);
