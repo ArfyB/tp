@@ -12,4 +12,10 @@ public class  MainController
 	{
 		return "thymeleaf/menurec/main";
 	}
+	
+	@RequestMapping("/guide")
+	public String guide()
+	{
+		return "thymeleaf/menurec/guide";
+	}
 }

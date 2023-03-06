@@ -1,0 +1,78 @@
+body {
+  background-image: url(../pics/main.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  position: relative;
+}
+.img-box {
+  left: 10%;
+  width: 55rem;
+  height: 45rem;
+  position: absolute;
+}
+#m {
+  height: 100%;
+  box-shadow: 0 30px 30px rgba(3, 3, 3, 3), 0 30px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10%;
+}
+
+.btn1,
+.btn2,
+.btn3,
+.btn4 {
+  width: 5rem;
+  height: 5rem;
+  background: none;
+  color: whitesmoke;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border: 2px solid goldenrod;
+  border-radius: 30%;
+  box-shadow: 0 30px 15px rgba(0, 0, 0, 0.9), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn1:hover,
+.btn2:hover,
+.btn3:hover,
+.btn4:hover {
+  border: 4px solid red;
+  transform: scale(1.2);
+}
+
+.btn5 {
+  padding: 20px;
+  background: none;
+  color: whitesmoke;
+  font-size: 20px;
+  border: 2px solid goldenrod;
+  border-radius: 20rem;
+  box-shadow: 0 30px 15px rgba(0, 0, 0, 0.9), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.btn5:hover {
+  border: 2px solid red;
+  animation-name: 버튼효과;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes 버튼효과 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg) scale(2);
+  }
+}

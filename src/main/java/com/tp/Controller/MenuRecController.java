@@ -20,10 +20,10 @@ public class MenuRecController
 	@Autowired
 	public rdmenu rm;
 	
-    @RequestMapping("/msel")
+    @RequestMapping("/main")
     public String msel(Model m)
     {
-    	return "thymeleaf/menu_rec/msel";
+    	return "thymeleaf/menu_rec/roulette";
     }
     
     @RequestMapping("/mseladd")

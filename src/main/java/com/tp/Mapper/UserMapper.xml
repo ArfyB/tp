@@ -5,15 +5,15 @@
         
         <insert id='UserAdd'
         parameterType='com.tp.Vo.User_info'>
-        INSERT INTO User_info (user_id, password, age, gender, season, country)
+        INSERT INTO User_info (user_id, password, age, gender, country, mg)
         values
         (
         #{user_id},
         #{password},
-        #{age},
+        #{age}, 
         #{gender},
-        #{season},
-        #{country}
+        #{country},
+        #{mg}
         )
         </insert>
         
@@ -21,7 +21,7 @@
         parameterType='com.tp.Vo.User_info'
         resultType='com.tp.Vo.User_info'>
         
-    	SELECT user_id, user_id, password FROM User_info
+    	SELECT user_id, password FROM User_info
     	WHERE user_id = #{user_id}
     	
 		</select>

@@ -16,7 +16,6 @@ public class UserService
 	
 	public boolean UserAdd(User_info ui) 
 	{
-		//List<Recipe>
 		return 0 < um.UserAdd(ui);
 	}
 	

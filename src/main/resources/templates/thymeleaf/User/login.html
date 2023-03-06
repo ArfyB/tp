@@ -1,43 +1,117 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>로그인 폼</title>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link href="../css/login_style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="login-wrap">
+      <div class="login-html">
+        <!-------------------------로그인 회원가입 카테고리----------------------------->
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked />
+        <label for="tab-1" class="tab">로그인</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" />
+        <label for="tab-2" class="tab">회원가입</label>
 
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <!------------------------- 로그인 칸 ----------------------------->
+        <div class="login-form">
+          <div class="sign-in-htm">
+            <div class="group">
+            
+            
+            
+            <form id='logins'>
+            
+              <label for="user" class="label">이름</label>
+              <input id="user" type="text" class="input" name='user_id' />
+            </div>
+            <div class="group">
+              <label for="pass" class="label">비밀번호</label>
+              <input id="pass" type="password" class="input" data-type="password" name='password'/>
+            </div>
+            
+            <div class="group">
+              <input type="button" class="button" value="Sign in" id='loginbtn'/>
+            </div>
+			            
+			</form>
+			
+			
+			
+            <div class="hr"></div>
+            <a href="/menurec/main"> <span class="foot"> Main home</span></a>
+          </div>
 
-
-<!-- <link rel="stylesheet" href="/css/Login.css" /> -->
-
-
-<!-- <button type='button' id='user'>유저로그인</button> --> <!-- 이거 누르면 Login_Box에 User_Login 나오게 -->
-<!-- <button type='button' id='seller'>판매자로그인</button> --> <!-- 이거 누르면 Login_Box에 Seller_Login 나오게 -->
-<!-- onclick으로 박스내용 변경 그걸로 하는거같음 -->
-
-<div class='Login_Box' id='lbx'>
-
-<form id='logins'>
-
-	<!--  기본적인 유저 로그인 폼  -->
-		uid<input name='user_id' type='text'>
-		
-		<br>
-		
-		pwd<input name='password' type='password'>
-	
-	<button type='button' id='loginbtn'>로그인</button>
-	
-</form>
-
-	<hr>
-	
-	<!-- <button id='fbtn' type='button'>아이디/비밀번호 찾기</button> -->
-	<button id='jbtn' type='button'>회원가입</button>
-</div>
-
-<script src="/js/login.js"></script>
-
-</body>
+          <!------------------------- 회원가입칸 ----------------------------->
+          <div class="sign-up-htm">
+            <div class="group">
+            
+            <form id='User_info'>
+              <label for="user" class="label">이름</label>
+              <input id="user" type="text" class="input" name='user_id'/>
+            </div>
+            <div class="group">
+              <label for="pass" class="label">비밀번호</label>
+              <input id="pass" type="password" class="input" data-type="password" name='password'/>
+            </div>
+            <div class="group">
+              <label for="pass" class="label">비밀번호를 다시 입력해주세요.</label>
+              <input id="pass" type="password" class="input" data-type="password" />
+            </div>
+            <div class="group">
+              <label for="pass" class="label">이메일</label>
+              <input id="pass" type="text" class="input" />
+            </div>
+            
+            <div class="group">
+              <label for="pass" class="label">나이</label>
+              <input name='age' type='number' class="input" required>
+            </div>
+            
+            <div class="group">
+              <label for="pass" class="label">나이</label>
+              <input type="radio" name='gender' value='남성'>남성
+			  <input type="radio" name='gender' value='여성'>여성
+			  <input type="radio" name='gender' value='그외' checked>그외
+            </div>
+            
+            <div class="group">
+              <label for="pass" class="label">육ㆍ채식</label>
+                <input type="radio" name='mg' value='전체' checked>전체
+				<input type="radio" name='mg' value='육식'>육식+채식
+				<input type="radio" name='mg' value='채식'>채식
+				<input type="radio" name='mg' value='간식'>간식
+            </div>
+            
+            <div class="group">
+              <label for="pass" class="label">음식스타일</label>
+            <select name='country'>
+			  <option value='한식'>한식</option>
+			  <option value='중식'>중식</option>
+			  <option value='일식'>일식</option>
+			  <option value='양식'>양식</option>
+			  <option value='그외'>그외</option>
+			</select>
+            </div>
+            
+            <div class="group">
+              <input type="button" class="button" value="Sign up" id='joinbtn' />
+            </div>
+            
+            </form>
+            <div class="hr"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="/js/login.js"></script>
+  </body>
 </html>

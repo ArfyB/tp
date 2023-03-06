@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/guide.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="img-box">
+      <img src="" id="m" />
+    </div>
+    <div class="btn">
+      <button class="btn1" onclick="바꾸기('../pics/1.png')">점심메뉴</button>
+      <button class="btn2" onclick="바꾸기('../pics/2.png')">집밥메뉴</button>
+      <button class="btn3" onclick="바꾸기('../pics/3.png')">저녁메뉴</button>
+      <button class="btn4" onclick="바꾸기('../pics/4.png')">야식메뉴</button>
+      <button class="btn5" onclick="location.href='main'">메인페이지 이동</button>
+    </div>
+    <script>
+      function 바꾸기(a) {
+        var m = document.getElementById("m");
+        m.src = a;
+      }
+    </script>
+  </body>
+</html>

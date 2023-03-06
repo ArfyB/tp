@@ -47,18 +47,14 @@ public class LoginController
 		return map;
 	}
 	
-	@RequestMapping("/join")
-	public String join()
+	@PostMapping("/join")
+	@ResponseBody
+	public Map<String, Object> join(User_info ui)
 	{
-		return "thymeleaf/User/Join";
+		Map<String, Object> map = new HashMap<>();
+		map.put("added", us.UserAdd(ui));
+		return map;
 	}
-	
-	@RequestMapping("/find")
-	public String find()
-	{
-		return "thymeleaf/User/Find";
-	}
-	
 	
 	
 }
