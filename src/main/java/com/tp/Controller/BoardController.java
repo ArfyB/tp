@@ -53,9 +53,11 @@ public class BoardController
 	
 	@PostMapping("/add")
 	@ResponseBody
-	public Map<String,Boolean> add(Board brd)
+	public Map<String,Boolean> add(Board brd, HttpServletRequest request)
 	{
 		Map<String,Boolean> map = new HashMap<>();
+		String uid = (String)request.getSession().getAttribute("uid");
+		brd.setAuthor(uid);
 		map.put("added", bs.BoardAdd(brd));
 		return map;
 	}
