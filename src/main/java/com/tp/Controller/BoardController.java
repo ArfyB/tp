@@ -103,10 +103,8 @@ public class BoardController
 	  }
 
 	@RequestMapping("/comment")
-	@ResponseBody
-	public Map<String, String> getComments() {
-		Map<String, String> comment = new HashMap<>();
-		return comment;
+	public String comment() {
+		return "thymeleaf/board/AddComment";
 	}
 
 }
