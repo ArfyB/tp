@@ -3,40 +3,45 @@
 <head>
 <meta charset="utf-8">
 <title>레시피 메인</title>
+<link rel="stylesheet" href="/css/RecipeMain.css">
 </head>
 <body>
 
 <!-- 조회수 높은 레시피들 몇개 추천해 줄 부분 -->
-<div name='hit_rec'>
-[[${recipeh}]]
-<hr>
-[[${reciper}]]
-<hr>
-<!-- 최다 조회수 3개 뽑아옴 -->
-<span th:each="r : ${recipeh}">
-	[[${r.rnum}]]
-	<a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}">[[${r.title}]]</a>
-	<br>
-</span>
-
-<hr>
+<div class="hit_rec">
+  [[${recipeh}]]
+  <hr>
+  [[${reciper}]]
+  <hr>
+  <!-- 최다 조회수 3개 뽑아옴 -->
+  <h2>최다 조회수 3</h2>
+  <table>
+    <tbody>
+      <tr th:each="r : ${recipeh}">
+        <td>[[${r.rnum}]]</td>
+        <td><a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
 </div>
 
-<div name='none_login_recipe'>
-
+<!-- 최신 5개 -->
+<div class="all_recipe">
+  <h2>최신 5개</h2>
+  <!-- 최신 레시피 게시슬 5개 뽑아옴 -->
+  <table>
+    <tbody>
+      <tr th:each="r : ${reciper}">
+        <td>[[${r.rnum}]]</td>
+        <td><a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <a href='/recipe/list/1/20'><button type='button'>더보기</button></a>
 </div>
 
-<!-- 최신 레시피 게시슬 5개 뽑아옴 -->
-<div name='all_recipe'>
-<a href='/recipe/list/1/2'><button type='button'>더보기</button></a>
-<br>
-<span th:each="r : ${reciper}">
-	[[${r.rnum}]]
-	<a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}">[[${r.title}]]</a>
-	<br>
-</span>
-
-</div>
 <a href='add'><button type='button'>추가</button></a>
+
 </body>
 </html>

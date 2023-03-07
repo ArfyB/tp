@@ -1,7 +1,7 @@
 const $c = document.querySelector("canvas");
 const ctx = $c.getContext(`2d`);
 
-const product = ["떡볶이", "돈가스", "초밥", "피자", "냉면", "치킨", "족발", "피자", "삼겹살"];	//9개
+let product = ["떡볶이", "돈가스", "초밥", "피자", "냉면", "치킨", "족발", "피자", "삼겹살"];	//9개
 
 const colors = [
   "#dc0936",
@@ -74,13 +74,12 @@ newMake();
 
 $(function()
 {
-	$('#upbtn').on('click', function(event)  // upbtn 클릭시 해당 이벤트 발생
+	$('#reroll').on('click', function(event)  // upbtn 클릭시 해당 이벤트 발생
 	{
 		event.preventDefault();
 		
-		$('#upbtn').prop('disabled', true);	// upbtn버튼 비활성화     연속적인 버튼클릭시 서버에 대한 공격이 될 가능성
 		
-		var form = document.getElementById('abc');
+		var form = document.getElementById('choise');
 		var formData = new FormData(form);
 		
 		var rdmenu = document.getElementById('rdmenu');
@@ -96,13 +95,46 @@ $(function()
 			timeout : 600000,
 			success : function(res)
 			{
-				$('#upbtn').prop('disabled', false);
 				rdmenu.innerHTML=res.rd;
 				//사진
 			},
 			error : function(e)
 			{
-				$('#upbtn').prop('disabled', false);
+            	alert('fail');
+			}
+		})
+
+	})
+}) 
+
+
+
+$(function()
+{
+	$('#roulette').on('click', function(event)  // upbtn 클릭시 해당 이벤트 발생
+	{
+		event.preventDefault();
+		
+		
+		var form = document.getElementById('choise');
+		var formData = new FormData(form);
+		
+		$.ajax						// ajax코드
+		({
+			type : 'post',
+			url : '/msel/rmenu',
+			data : formData,
+			processData : false,
+			contentType : false,
+			cache : false,
+			timeout : 600000,
+			success : function(res)
+			{
+				product.splice(0, product.length, ...res.rd);
+				newMake();
+			},
+			error : function(e)
+			{
             	alert('fail');
 			}
 		})

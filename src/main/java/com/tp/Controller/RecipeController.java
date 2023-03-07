@@ -48,7 +48,7 @@ public class RecipeController
 	@GetMapping("/add")
 	public String add()
 	{
-		return "thymeleaf/recipe/RecipeAdd";
+		return "thymeleaf/recipe/RecipeAdd2";
 	}
 	
 	@PostMapping("/add")
@@ -93,6 +93,7 @@ public class RecipeController
       {
 		
        Map<String, Object> map = new HashMap<>();
+       
        String uid = (String)request.getSession().getAttribute("uid");
        rec.setAuthor(uid);
        

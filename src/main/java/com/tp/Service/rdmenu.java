@@ -1,5 +1,7 @@
 package com.tp.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +27,15 @@ public class rdmenu
 	public RdMenu getrd(RdMenu rm)
 	{
 		return mm.getrd(rm);
+	}
+	
+	public List<RdMenu> rmenu1(RdMenu rm)
+	{
+		return mm.rmenu1(rm);
+	}
+	
+	public List<RdMenu> rmenu2(RdMenu rm)
+	{
+		return mm.rmenu2(rm);
 	}
 }

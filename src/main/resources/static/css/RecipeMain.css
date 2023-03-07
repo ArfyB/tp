@@ -1,0 +1,26 @@
+.hit_rec {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.all_recipe {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border: 1px solid black;
+  padding: 10px;
+  float: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  border: 1px solid black;
+  padding: 5px;
+}

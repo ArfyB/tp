@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
+
+<link href="/css/rd.css" rel="stylesheet" />
+
 </head>
 <body>
 [[${r}]]
@@ -15,7 +18,12 @@
 <br>
 몇인분 : [[${r.human}]]
 <br>
-난이도 : [[${r.difficult}]]
+난이도 : 
+<th:block th:if="${r.difficult == 'noob'}">아무나</th:block>
+<th:block th:if="${r.difficult == 'easy'}">초급</th:block>
+<th:block th:if="${r.difficult == 'normal'}">중급</th:block>
+<th:block th:if="${r.difficult == 'hard'}">고급</th:block>
+<th:block th:if="${r.difficult == 'hell'}">어려움</th:block>
 <br>
 
 조리시간 :
@@ -40,8 +48,6 @@
 <a href='/recipe/main'><button type='button'>홈</button></a>
 <a href='/recipe/list/1/1'><button type='button'>목록</button></a>
 <a th:href="@{/recipe/delete/{rnum}(rnum=${r.rnum})}"><button type='button'>삭제</button></a>
-
-
 
 </body>
 </html>

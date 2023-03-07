@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <link href="../css/login_style.css" rel="stylesheet" />
+    
+    <link href="../css/login_style.css" rel="stylesheet"/>
+    
   </head>
   <body>
     <div class="login-wrap">
@@ -61,6 +63,8 @@
               <label for="pass" class="label">비밀번호</label>
               <input id="pass" type="password" class="input" data-type="password" name='password'/>
             </div>
+            
+            <!-- 
             <div class="group">
               <label for="pass" class="label">비밀번호를 다시 입력해주세요.</label>
               <input id="pass" type="password" class="input" data-type="password" />
@@ -69,14 +73,15 @@
               <label for="pass" class="label">이메일</label>
               <input id="pass" type="text" class="input" />
             </div>
-            
+             -->
+             
             <div class="group">
               <label for="pass" class="label">나이</label>
               <input name='age' type='number' class="input" required>
             </div>
             
             <div class="group">
-              <label for="pass" class="label">나이</label>
+              <label for="pass" class="label">성별</label>
               <input type="radio" name='gender' value='남성'>남성
 			  <input type="radio" name='gender' value='여성'>여성
 			  <input type="radio" name='gender' value='그외' checked>그외
@@ -112,6 +117,6 @@
       </div>
     </div>
     
-    <script src="/js/login.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 </html>

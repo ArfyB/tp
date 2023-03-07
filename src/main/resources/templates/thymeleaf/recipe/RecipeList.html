@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>레시피 목록</title>
+    <meta charset="utf-8">
+    <title>레시피 목록</title>
+    <link rel="stylesheet" type="text/css" href="/css/RecipeList.css">
 </head>
 <body>
 
-[[${pageinfo.list}]]
+    <table>
+        <thead>
+            <tr>
+                <th class="rnum">글번호</th>
+                <th class="title">제목</th>
+                <th class="recdate">작성일</th>
+                <th class="author">작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="r : ${pageinfo.list}">
+                <td class="rnum" th:text="${r.rnum}"></td>
+                <td class="title">
+                    <a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a>
+                </td>
+                <td class="recdate" th:text="${r.recdate}"></td>
+                <td class="author" th:text="${r.author}"></td>
+            </tr>
+        </tbody>
+    </table>
 
-<hr>
+    <hr>
 
-<span th:each="r : ${pageinfo.list}">
+    <a href='/recipe/list/1/20'><button type='button'><<</button></a>
 
-		<span class='rnum'>[[${r.rnum}]]</span>
-		
-	<a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}">
-			<span class='title'>[[${r.title}]]</span>
-	</a>
-	
-			<span class='recdate'>[[${r.recdate}]]</span>
-			<span class='author'>[[${r.author}]]</span>
-			
-</span>
+    <span th:each="idx,iterStat : ${#numbers.sequence(pages.begin,pages.end)}">
+        <a th:href="@{/recipe/list/{page}/{row}(page=${idx.intValue()},row=20)}" th:text="${idx}"></a>
+    </span>
 
-<span th:each="r : ${pageinfo.list}">
-	
-</span>
-
-<hr>
+    <a th:href='@{/recipe/list/__${#strings.toString(pageinfo.pages)}__/20}'><button type='button'>>></button></a>
 
 
-<a href='/recipe/list/1/2'><button type='button'><<</button></a>
+    <hr>
 
-<span th:each="idx,iterStat : ${#numbers.sequence(pages.begin,pages.end)}">
-    <a th:href="@{/recipe/list/{page}/{row}(page=${idx.intValue()},row=2)}" th:text="${idx}"></a>
-</span>
+    <a href='/recipe/add'><button type='button'>추가</button></a>
+    <a href='/recipe/main'><button type='button'>홈</button></a>
 
-<a th:href='@{/recipe/list/__${#strings.toString(pageinfo.pages)}__/2}'><button type='button'>>></button></a>
-
-
-<hr>
-
-<a href='/recipe/add'><button type='button'>추가</button></a>
-<a href='/recipe/main'><button type='button'>홈</button></a>
-
-<hr>
-
+    <hr>
 
 </body>
 </html>

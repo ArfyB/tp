@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>레시피 등록</title>
+    <link rel="stylesheet" href="/css/recipe2.css" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="/js/RecipeAdd.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form id='recipe'>
+        <h1>레시피 등록</h1>
+        
+        <input type='hidden' name='author'>
+		<input type='hidden' name='racc' value='0'>
+		<input type='hidden' name='howtomake'>
+        <div class="form-group">
+        <label>
+          <span class='rtxt'>레시피 제목</span> <input type='text' name='title'>
+         </label>
+        </div>
+        <div class="form-group">
+          <label for="recipe-img">이미지</label>
+          <input type="file" id="recipe-img" name="files" />
+        </div>
+        <div class="form-group">
+          <label for="recipe-desc">소개</label>
+         <input type='text' name='info'>
+        </div>
+
+        <div class="form-group">
+          <label for="recipe-desc">카테고리</label>
+         <select name='category'>
+		<option value='null'>종류</option>
+		<option value='alx'>밑반찬</option>
+		<option value='apdls'>메인반찬</option>
+		<option value='rnr'>국/탕</option>
+		<option value='Wlro'>찌개</option>
+		<option value='elwjxm'>디저트</option>
+		<option value='aus'>면/만두</option>
+		<option value='qkq'>밥/죽/떡</option>
+		<option value='vbwjs'>퓨전</option>
+		<option value='rlacl'>김치/젓갈/장류</option>
+		<option value='didsua'>양념/소스/잼</option>
+		<option value='didtlr'>양식</option>
+		<option value='toffjem'>샐러드</option>
+		<option value='tmvm'>스프</option>
+		<option value='Qkd'>빵</option>
+		<option value='rhkwk'>과자</option>
+		<option value='ck'>차/음료/술</option>
+		<option value='rlxk'>기타</option>
+	</select>
+          <select name='how'>
+	<option value='null'>방법</option>
+	<option value='qhR'>볶음</option>
+	<option value='Rmfg'>끓이기</option>
+	<option value='qn'>부침</option>
+	<option value='wh'>조림</option>
+	<option value='an'>무침</option>
+	<option value='ql'>비빔</option>
+	<option value='Wla'>찜</option>
+	<option value='wjf'>절임</option>
+	<option value='xnl'>튀김</option>
+	<option value='tkfa'>삶기</option>
+	<option value='rnq'>굽기</option>
+	<option value='ep'>데치기</option>
+	<option value='ghl'>회</option>
+	<option value='rl'>기타</option>
+	</select>
+    <select name='catemat' text='재료'>
+	<option value='null'>재료</option>
+	<option value='cow'>소고기</option>
+	<option value='pig'>돼지고기</option>
+	<option value='chicken'>닭고기</option>
+	<option value='meat'>육류</option>
+	<option value='vegetable'>채소류</option>
+	<option value='seafood'>해물류</option>
+	<option value='egg'>달걀/유제품</option>
+	<option value='rkrhd'>가공식품류</option>
+	<option value='rice'>쌀</option>
+	<option value='meal'>밀가루</option>
+	<option value=''>건어물류</option>
+	<option value='mushroom'>버섯류</option>
+	<option value='fruit'>과일류</option>
+	<option value='bean'>콩/견과류</option>
+	<option value='seed'>곡류</option>
+	<option value='rl'>기타</option>
+	</select>
+	
+          <select name='human'>
+	<option value='0'>인분</option>
+	<option value='1'>1인분</option>
+	<option value='2'>2인분</option>
+	<option value='3'>3인분</option>
+	<option value='4'>4인분</option>
+	<option value='5'>5인분이상</option>
+	</select>
+	<select name='time'>
+	<option value='0'>시간</option>
+	<option value='1'>5분이내</option>
+	<option value='2'>10분이내</option>
+	<option value='3'>20분이내</option>
+	<option value='4'>30분이내</option>
+	<option value='5'>1시간이내</option>
+	<option value='6'>2시간이내</option>
+	</select>
+	<select name='difficult'>
+	<option value='null'>난이도</option>
+	<option value='noob'>아무나</option>
+	<option value='easy'>초급</option>
+	<option value='normal'>중급</option>
+	<option value='hard'>고급</option>
+	<option value='hell'>어려움</option>
+	</select>
+        </div>
+
+        <div class="form-group">
+          <label for="recipe-instr">조리방법</label>
+          <textarea name='howtom' placeholder="레시피 조리방법 설명"></textarea>
+        </div>
+        <button type="button" id='upbtn'>등록하기</button>
+      </form>
+    </div>
+  </body>
+</html>

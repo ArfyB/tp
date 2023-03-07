@@ -35,6 +35,27 @@
 		        
         </select>
         
+        <select id='rmenu1'
+        parameterType='com.tp.Vo.RdMenu'
+        resultType='com.tp.Vo.RdMenu'>
+		SELECT * FROM(
+    	SELECT * FROM rdmenu WHERE mg=#{mg} AND country = #{country} ORDER BY DBMS_RANDOM.RANDOM
+		)
+		WHERE <![CDATA[ ROWNUM <= 9 ]]>
+		        
+        </select>
+        
+        
+         <select id='rmenu2'
+        parameterType='com.tp.Vo.RdMenu'
+        resultType='com.tp.Vo.RdMenu'>
+		SELECT * FROM(
+    	SELECT * FROM rdmenu WHERE country = #{country} ORDER BY DBMS_RANDOM.RANDOM
+		)
+		WHERE <![CDATA[ ROWNUM <= 9 ]]>
+		        
+        </select>
+        
 <!--         
         <select id='getrd'
         parameterType='com.tp.Vo.RdMenu'>
