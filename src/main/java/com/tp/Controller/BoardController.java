@@ -71,7 +71,7 @@ public class BoardController
 		m.addAttribute("pageinfo", pageinfo);
 		m.addAttribute("pages", bs.pages(pageinfo));  // 페이지이동
 		
-		return "thymeleaf/recipe/RecipeList";
+		return "thymeleaf/recipe/BoardList";
 
 
 	}
@@ -81,7 +81,7 @@ public class BoardController
 	{
 		
 		m.addAttribute("r",bs.GetUphitBoard(bnum));
-		return "thymeleaf/recipe/RecipeDetail";
+		return "thymeleaf/recipe/BoardDetail";
 	}
 	
 	@PostMapping("/upload")
@@ -103,6 +103,7 @@ public class BoardController
 	  }
 
 	@RequestMapping("/comment")
+
 	public String comment() {
 		return "thymeleaf/board/AddComment";
 	}
