@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <title>레시피 메인</title>
 <link rel="stylesheet" href="/css/RecipeMain.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="path/to/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -13,7 +15,7 @@
   <!-- [[${reciper}]] -->
   <!-- 최다 조회수 3개 뽑아옴 -->
   <h4>최다 조회수 3</h4>
-  <table>
+  <table class='t1'>
     <tbody>
       <tr th:each="r : ${recipeh}">
         <td>[[${r.rnum}]]</td>
@@ -40,6 +42,6 @@
 </div>
 
 <a href='add'><button type='button'>추가</button></a>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

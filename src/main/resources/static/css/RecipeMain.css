@@ -38,9 +38,11 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  transform: translate
 }
 
 table td {
   border: 1px solid black;
   padding: 5px;
 }
+
