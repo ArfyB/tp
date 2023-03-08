@@ -2,17 +2,37 @@
   text-align: center;
   margin: auto;
   width: 50%;
+  max-width: 50%; /* 추가 */
   border: 1px solid black;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .all_recipe {
   text-align: center;
   margin: auto;
-  width: 50%;
+  width: 45%;
+  max-width: 45%; /* 추가 */
   border: 1px solid black;
   padding: 10px;
   float: right;
+  margin-top: 20px;
+  margin-right: 0;
+  float: right;
+}
+
+
+/* 가운데 구분선 스타일 */
+.separator {
+  height: 100%;
+  width: 2px;
+  margin: auto;
+  background-color: #ccc;
+  display: inline-block;
+  position: absolute; /* 절대 위치 지정 */
+  top: 30%; /* top 여백 조정 */
+  left: 50%; /* 가운데 정렬 */
+  transform: translateX(-50%); /* 가운데 정렬 */
 }
 
 table {

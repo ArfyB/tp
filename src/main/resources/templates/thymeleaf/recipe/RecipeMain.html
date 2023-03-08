@@ -9,12 +9,10 @@
 
 <!-- 조회수 높은 레시피들 몇개 추천해 줄 부분 -->
 <div class="hit_rec">
-  [[${recipeh}]]
-  <hr>
-  [[${reciper}]]
-  <hr>
+  <!-- [[${recipeh}]] -->
+  <!-- [[${reciper}]] -->
   <!-- 최다 조회수 3개 뽑아옴 -->
-  <h2>최다 조회수 3</h2>
+  <h4>최다 조회수 3</h4>
   <table>
     <tbody>
       <tr th:each="r : ${recipeh}">
@@ -25,10 +23,10 @@
   </table>
   <hr>
 </div>
-
+<div class="separator"></div>
 <!-- 최신 5개 -->
 <div class="all_recipe">
-  <h2>최신 5개</h2>
+  <h4>최신 5개</h4>
   <!-- 최신 레시피 게시슬 5개 뽑아옴 -->
   <table>
     <tbody>
