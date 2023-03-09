@@ -7,6 +7,24 @@
   <link href="/css/rd.css" rel="stylesheet" />
 </head>
 <body>
+<div class="grid1">
+<div class="grid2"><img th:src="@{'/pics/'+ ${r.rpic} }" width='200' height='200'></div><!-- name -->
+<div class="grid3">[[${r.title}]]</div>
+<div class="grid4">[[${r.info}]]</div>
+<div class="grid5">5</div>
+<div class="grid6">6</div>
+<div class="grid7">7</div>
+<div class="grid8">8</div>
+<div class="grid9">9</div>
+<div class="grid10">10</div>
+<div class="grid11">11</div>
+<div class="grid12">12</div>
+<div class="grid13">13</div>
+<div class="grid14">14</div>
+<div class="grid15">15</div>
+<div class="grid16">16</div>
+</div>
+
   <div class='back'>
     레시피 번호: [[${r.rnum}]]
     <br>
@@ -33,8 +51,6 @@
     <th:block th:if="${r.time == 6}">2시간 이내</th:block>
     <br>
     내용: <span th:utext="${how}"> </span>
-    <br>
-    <img th:src="@{'/pics/'+ ${r.rpic} }" width='200' height='200'>
     <br>
     
     <div class="buttons">

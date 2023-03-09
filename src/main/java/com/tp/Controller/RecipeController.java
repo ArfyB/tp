@@ -80,7 +80,6 @@ public class RecipeController
 		m.addAttribute("uid",uid);
 		m.addAttribute("r",r);
 		m.addAttribute("how",howtomake);
-		System.out.println(howtomake);
 		return "thymeleaf/recipe/RecipeDetail";
 	}
 	
