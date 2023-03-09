@@ -1,11 +1,19 @@
 .hit_rec {
-  text-align: center;
-  margin: auto;
-  width: 50%;
-  max-width: 50%; /* 추가 */
-  border: 1px solid black;
-  padding: 10px;
-  margin-bottom: 20px;
+background-color: transparent;
+text-align: center;
+margin: auto;
+width: 50%;
+max-width: 50%; /* 추가 /
+border: none; / 수정 */
+padding: 10px;
+margin-bottom: 20px;
+}
+
+.hit_rec table td {
+line-height: 0.6; /* 원하는 값으로 수정해주세요. /
+border: none;
+padding: 5px; / 원하는 값으로 수정해주세요. */
+border-bottom: 1px solid #ccc;
 }
 
 .all_recipe {
@@ -13,7 +21,20 @@
   margin: auto;
   width: 45%;
   max-width: 45%; /* 추가 */
-  border: 1px solid black;
+  border: none; /* 수정 */
+  padding: 10px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 0;
+  float: left;
+}
+
+.all_board {
+  text-align: center;
+  margin: auto;
+  width: 45%;
+  max-width: 45%; /* 추가 */
+  border: none; /* 수정 */
   padding: 10px;
   float: right;
   margin-top: 20px;
@@ -22,27 +43,55 @@
 }
 
 
-/* 가운데 구분선 스타일 */
-.separator {
-  height: 100%;
-  width: 2px;
-  margin: auto;
-  background-color: #ccc;
-  display: inline-block;
-  position: absolute; /* 절대 위치 지정 */
-  top: 30%; /* top 여백 조정 */
-  left: 50%; /* 가운데 정렬 */
-  transform: translateX(-50%); /* 가운데 정렬 */
-}
-
+/* 테이블 스타일 */
 table {
   width: 100%;
   border-collapse: collapse;
-  transform: translate
 }
 
 table td {
-  border: 1px solid black;
-  padding: 5px;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+table td:nth-child(1) {
+  width: 10%;
+}
+table td:nth-child(2) {
+  width: 30%;
+}
+table td:nth-child(3) {
+  width: 20%;
+}
+
+table th {
+  border: none;
+  padding: 10px;
+  background-color: rgba(192,192,192,0.7);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn{
+  display: block;
+  background-color: transparent;
+  color: #black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.h4b {
+  display: flex;
+  align-items: center; /* 요소들을 수직 가운데 정렬 */
+  justify-content: space-between;
+}
+
+h4 {
+  margin-right: 0; /* h4과 버튼 사이 간격을 조절할 수 있습니다. */
+  text-align : left;
 }
 

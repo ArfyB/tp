@@ -1,7 +1,6 @@
 package com.tp.Controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tp.Mapper.RecipeMapper;
 import com.tp.Service.RecipeService;
-import com.tp.Vo.Material;
 import com.tp.Vo.Recipe;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -74,10 +72,12 @@ public class RecipeController
 	}
 	
 	@RequestMapping("/detail/{rnum}")
-	public String detail(@PathVariable("rnum") int rnum, Model m)
+	public String detail(@PathVariable("rnum") int rnum, Model m, HttpServletRequest request)
 	{
 		Recipe r = rs.GetUphitRecipe(rnum);
 		String howtomake = r.getHowtomake().replaceAll("\n", "<br>"); 
+		String uid = (String)request.getSession().getAttribute("uid");
+		m.addAttribute("uid",uid);
 		m.addAttribute("r",r);
 		m.addAttribute("how",howtomake);
 		System.out.println(howtomake);

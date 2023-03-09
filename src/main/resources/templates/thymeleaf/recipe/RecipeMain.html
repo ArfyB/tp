@@ -9,39 +9,70 @@
 </head>
 <body>
 
+<div class='all'>
 <!-- 조회수 높은 레시피들 몇개 추천해 줄 부분 -->
 <div class="hit_rec">
   <!-- [[${recipeh}]] -->
   <!-- [[${reciper}]] -->
   <!-- 최다 조회수 3개 뽑아옴 -->
+  <div class='h4b'>
   <h4>최다 조회수 3</h4>
+  <a href='/recipe/list/1/20'><button type='button' class='btn'>▶더보기</button></a>
+  </div>
   <table class='t1'>
     <tbody>
       <tr th:each="r : ${recipeh}">
         <td>[[${r.rnum}]]</td>
         <td><a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a></td>
+        <td>[[${r.hits}]]</td>
       </tr>
     </tbody>
   </table>
-  <hr>
 </div>
-<div class="separator"></div>
-<!-- 최신 5개 -->
-<div class="all_recipe">
-  <h4>최신 5개</h4>
+
+<div class="all_board">
+
+<div class='h4b'>
+ <h4>최신 게시판 5개</h4>
+ 
+ <a href='/recipe/list/1/20'><button type='button' class='btn'>▶더보기</button></a>
+ </div>
   <!-- 최신 레시피 게시슬 5개 뽑아옴 -->
   <table>
     <tbody>
       <tr th:each="r : ${reciper}">
         <td>[[${r.rnum}]]</td>
         <td><a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a></td>
+        <td>[[${r.recdate}]]</td>
       </tr>
     </tbody>
   </table>
-  <a href='/recipe/list/1/20'><button type='button'>더보기</button></a>
+</div>
+
+
+<div class="separator"></div>
+<!-- 최신 5개 -->
+<div class="all_recipe">
+
+<div class='h4b'>
+ <h4>최신 레시피 5개</h4>
+ 
+ <a href='/recipe/list/1/20'><button type='button' class='btn'>▶더보기</button></a>
+ </div>
+  <!-- 최신 레시피 게시슬 5개 뽑아옴 -->
+  <table>
+    <tbody>
+      <tr th:each="r : ${reciper}">
+        <td>[[${r.rnum}]]</td>
+        <td><a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a></td>
+        <td>[[${r.recdate}]]</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <a href='add'><button type='button'>추가</button></a>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+
 </body>
 </html>
