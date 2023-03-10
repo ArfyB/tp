@@ -4,63 +4,31 @@
   <meta charset="utf-8">
   <title>Insert title here</title>
   <link rel="stylesheet" href="/css/RecipeDetail.css" />
-  <link href="/css/rd.css" rel="stylesheet" />
 </head>
 <body>
+<div class='container'>
 <div class="grid1">
-<div class="grid2"><img th:src="@{'/pics/'+ ${r.rpic} }" width='200' height='200'></div><!-- name -->
+<div class="grid2"><img th:src="@{'/pics/'+ ${r.rpic} }" width='250' height='250'></div><!-- name -->
 <div class="grid3">[[${r.title}]]</div>
 <div class="grid4">[[${r.info}]]</div>
-<div class="grid5">5</div>
-<div class="grid6">6</div>
-<div class="grid7">7</div>
-<div class="grid8">8</div>
-<div class="grid9">9</div>
-<div class="grid10">10</div>
-<div class="grid11">11</div>
-<div class="grid12">12</div>
-<div class="grid13">13</div>
-<div class="grid14">14</div>
-<div class="grid15">15</div>
-<div class="grid16">16</div>
+<div class="grid5">[[${r.author}]]</div>
+<div class="grid6">[[${r.recdate}]]</div>
+<div class="grid7">[[${r.human}]]인분</div>
+<div class="grid8">[[${r.difficult}]]</div>
+<div class="grid9">
+<th:block th:if="${r.time == 0}">미입력</th:block>
+<th:block th:if="${r.time == 1}">5분 이내</th:block>
+<th:block th:if="${r.time == 2}">10분 이내</th:block>
+<th:block th:if="${r.time == 3}">20분 이내</th:block>
+<th:block th:if="${r.time == 4}">30분 이내</th:block>
+<th:block th:if="${r.time == 5}">1시간 이내</th:block>
+<th:block th:if="${r.time == 6}">2시간 이내</th:block>
 </div>
-
-  <div class='back'>
-    레시피 번호: [[${r.rnum}]]
-    <br>
-    레시피 제목: [[${r.title}]]
-    <br>
-    게시일: [[${r.recdate}]]
-    <br>
-    몇인분: [[${r.human}]]
-    <br>
-    난이도:
-    <th:block th:if="${r.difficult == 'noob'}">아무나</th:block>
-    <th:block th:if="${r.difficult == 'easy'}">초급</th:block>
-    <th:block th:if="${r.difficult == 'normal'}">중급</th:block>
-    <th:block th:if="${r.difficult == 'hard'}">고급</th:block>
-    <th:block th:if="${r.difficult == 'hell'}">어려움</th:block>
-    <br>
-    조리시간:
-    <th:block th:if="${r.time == 0}">미입력</th:block>
-    <th:block th:if="${r.time == 1}">5분 이내</th:block>
-    <th:block th:if="${r.time == 2}">10분 이내</th:block>
-    <th:block th:if="${r.time == 3}">20분 이내</th:block>
-    <th:block th:if="${r.time == 4}">30분 이내</th:block>
-    <th:block th:if="${r.time == 5}">1시간 이내</th:block>
-    <th:block th:if="${r.time == 6}">2시간 이내</th:block>
-    <br>
-    내용: <span th:utext="${how}"> </span>
-    <br>
-    
-    <div class="buttons">
-      <a href='/recipe/main'><button type='button'>홈</button></a>
-      <a href='/recipe/list/1/1'><button type='button'>목록</button></a>
-      <th:block th:if="${r.author == uid}">
-        <a th:href="@{/recipe/delete/{rnum}(rnum=${r.rnum})}"><button type='button'>삭제</button></a>
-      </th:block>
-    </div>
-    
-  </div>
+<div class="grid10">[[${r.category}]]</div>
+<div class="grid11">[[${r.how}]]</div>
+<div class="grid12">[[${r.catemat}]]</div>
+<div class="grid13"><span th:utext="${how}"></div>
+</div>
+</div>
 </body>
 </html>

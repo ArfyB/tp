@@ -21,8 +21,8 @@ public class Recipe
 	private int hits;		// 조회수				
 	private java.sql.Date recdate;	// 작성일		
 	private String category;	// 가장 큰 카테고리	@
-	private String how;			// 방법			@ 11
-	private String catemat;		// 주 재료		@ 11
+	private String how;			// 방법			@
+	private String catemat;		// 주 재료		@
 	private String human;		// 몇인분			@
 	private int time;		// 조리시간			@
 	private String difficult;	// 난이도			@
