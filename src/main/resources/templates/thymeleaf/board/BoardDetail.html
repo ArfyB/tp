@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 상세보기</title>
+</head>
+<body>
+<h1>게시글 상세보기</h1>
+
+<div>
+  <h2 id="post-title"></h2>
+  <p id="post-author"></p>
+  <p id="post-date"></p>
+  <hr>
+  <p id="post-content"></p>
+</div>
+
+<a href="thyleaf/board/BoardList">목록으로 돌아가기</a>
+
+<script>
+  // 서버에서 해당 게시글 정보를 받아와서 HTML에 삽입하는 코드
+  const postId = '게시글 ID';  // 서버로부터 받은 게시글 ID
+  const postTitle = '게시글 제목';  // 서버로부터 받은 게시글 제목
+  const postAuthor = '게시글 작성자';  // 서버로부터 받은 게시글 작성자
+  const postDate = '게시글 작성일';  // 서버로부터 받은 게시글 작성일
+  const postContent = '게시글 내용';  // 서버로부터 받은 게시글 내용
+
+  document.getElementById('post-title').innerText = postTitle;
+  document.getElementById('post-author').innerText = `작성자: ${postAuthor}`;
+  document.getElementById('post-date').innerText = `작성일: ${postDate}`;
+  document.getElementById('post-content').innerText = postContent;
+</script>
+</body>
+</html>
