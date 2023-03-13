@@ -75,7 +75,7 @@ public class BoardController
 		m.addAttribute("pageinfo", pageinfo);
 		m.addAttribute("pages", bs.pages(pageinfo));  // 페이지이동
 		
-		return "thymeleaf/board/boardlist";
+		return "thymeleaf/board/BoardList";
 
 
 	}
