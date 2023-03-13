@@ -50,7 +50,7 @@ public class BoardController
 	{
 		return "thymeleaf/board/BoardAdd";
 	}
-	
+
 	@PostMapping("/add")
 	@ResponseBody
 	public Map<String,Boolean> add(Board brd, HttpServletRequest request)
@@ -58,6 +58,10 @@ public class BoardController
 		Map<String,Boolean> map = new HashMap<>();
 		String uid = (String)request.getSession().getAttribute("uid");
 		brd.setAuthor(uid);
+
+		java.util.Date utilDate = new java.util.Date();
+		brd.setRecdate(new java.sql.Date(utilDate.getTime()));
+
 		map.put("added", bs.BoardAdd(brd));
 		return map;
 	}
@@ -71,7 +75,7 @@ public class BoardController
 		m.addAttribute("pageinfo", pageinfo);
 		m.addAttribute("pages", bs.pages(pageinfo));  // 페이지이동
 		
-		return "thymeleaf/board/BoardList";
+		return "thymeleaf/board/boardlist";
 
 
 	}
@@ -102,10 +106,5 @@ public class BoardController
        return added;
 	  }
 
-	@RequestMapping("/comment")
-
-	public String comment() {
-		return "thymeleaf/board/AddComment";
-	}
 
 }

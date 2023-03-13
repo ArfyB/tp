@@ -18,4 +18,9 @@ public class  MainController
 	{
 		return "thymeleaf/menurec/guide";
 	}
+	@RequestMapping("/board")
+	public String board()
+	{
+		return "thymeleaf/board/BoardList";
+	}
 }

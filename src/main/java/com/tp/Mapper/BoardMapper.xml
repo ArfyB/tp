@@ -65,4 +65,5 @@
                 #{created_at}
             )
     </insert>
+
 </mapper>

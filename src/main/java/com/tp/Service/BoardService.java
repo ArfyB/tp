@@ -171,15 +171,6 @@ public class BoardService {
 	         */
 	}
 
-	public boolean addComment(Map<String, String> map, String key, String Comment) {
-		try {
-			// add the comment to the specified key in the map
-			map.put(key, Comment);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+
 
 }

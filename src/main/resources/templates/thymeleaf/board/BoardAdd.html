@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시판 추가</title>
+	<meta charset="UTF-8">
+	<title>게시판 추가</title>
 </head>
 <body>
 
@@ -11,11 +11,11 @@
 
 <form id='board'>
 
-	<input type='hidden' name = 'bnum'>
-	
+	<input type='hidden' name = 'bnum' value='0'>
+
 	제목<input type='text' name = 'title'>
-	내용<textarea rows="2" cols="10"></textarea> 
-	
+	내용<textarea rows="2" cols="10" name='contents'></textarea>
+
 	<button type='button' id='upbtn'>업로드</button>
 </form>
 

@@ -20,4 +20,5 @@ public interface BoardMapper
 	public List<Board> GetBoardBnum();
 	public int uphit(int bnum);
     public List<Comment> Comment();
+
 }

@@ -8,27 +8,71 @@
 <h1>게시글 상세보기</h1>
 
 <div>
-  <h2 id="post-title"></h2>
-  <p id="post-author"></p>
-  <p id="post-date"></p>
+  <h2 id="post-title">
+    제목 : [[${b.title}]]
+  </h2>
+  <p id="post-author">
+    작성자 : [[${b.author}]]
+  </p>
+  <p id="post-date">
+    작성일 : [[${b.recdate}]]
+  </p>
   <hr>
-  <p id="post-content"></p>
+  <p id="post-content">
+    내용 : [[${b.contents}]]
+  </p>
 </div>
 
-<a href="thyleaf/board/BoardList">목록으로 돌아가기</a>
+<hr>
 
+<div>
+  <h2>댓글</h2>
+  <ul id="comment-list">
+    <!-- 댓글 목록이 여기에 추가됩니다. -->
+    <li th:each="c : ${comments}" th:text="${c.content}"></li>
+  </ul>
+  <form id="comment-form">
+    <label for="comment-input">댓글 쓰기:</label>
+    <input type="text" id="comment-input" name="content">
+    <button type="submit">등록</button>
+  </form>
+</div>
+
+<a href="/board/list/1/20">목록으로 돌아가기</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  // 서버에서 해당 게시글 정보를 받아와서 HTML에 삽입하는 코드
-  const postId = '게시글 ID';  // 서버로부터 받은 게시글 ID
-  const postTitle = '게시글 제목';  // 서버로부터 받은 게시글 제목
-  const postAuthor = '게시글 작성자';  // 서버로부터 받은 게시글 작성자
-  const postDate = '게시글 작성일';  // 서버로부터 받은 게시글 작성일
-  const postContent = '게시글 내용';  // 서버로부터 받은 게시글 내용
+  $(function() {
+    const commentForm = $('#comment-form');
+    const commentList = $('#comment-list');
 
-  document.getElementById('post-title').innerText = postTitle;
-  document.getElementById('post-author').innerText = `작성자: ${postAuthor}`;
-  document.getElementById('post-date').innerText = `작성일: ${postDate}`;
-  document.getElementById('post-content').innerText = postContent;
+    // 댓글 폼 제출 이벤트 리스너 등록
+    commentForm.submit(function(event) {
+      event.preventDefault(); // 기본 이벤트 처리 방지
+
+      // 입력한 댓글 내용 가져오기
+      const content = $('#comment-input').val();
+
+      // AJAX 요청으로 서버에 댓글 추가 요청 보내기
+      $.ajax({
+        url: '/api/comments', // 서버 API 엔드포인트
+        method: 'POST',
+        data: { content: content }, // POST 요청 데이터
+        success: function(comment) {
+          // 새로운 댓글을 목록에 추가하기
+          const li = $('<li></li>').text(comment.content);
+          commentList.append(li);
+
+          // 댓글 입력 필드 비우기
+          $('#comment-input').val('');
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+        }
+      });
+    });
+  });
 </script>
+
 </body>
 </html>
