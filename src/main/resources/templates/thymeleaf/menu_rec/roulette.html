@@ -4,49 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/roulette.css" />
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/roulette2.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"></script>
     <title>Document</title>
   </head>
   <body>
+
+
     <div class="game">
       <canvas width="380" height="380"></canvas>
       <button onclick="rotate()">룰렛 돌리기</button>
     </div>
-    
-	    
-	    
-	<form id='choise'>
-	
-	<input type="radio" name='mg' value='전체' checked>전체
-	<input type="radio" name='mg' value='육식'>육식+채식
-	<input type="radio" name='mg' value='채식'>채식
-	<input type="radio" name='mg' value='간식'>간식
-	
-	<br>
-	
-	<input type="radio" name='country' value='한식' checked>한식
-	<input type="radio" name='country' value='중식'>중식
-	<input type="radio" name='country' value='일식'>일식
-	<input type="radio" name='country' value='양식'>양식
-	<input type="radio" name='country' value='그외'>그외
-	
-	<br>
-	
-	
-	
-	</form>
-
-	<span id='rdmenu'>123456789</span> <!-- 메뉴추천으로 나오는 음식칸 -->
 
 
 
-	<button type='button' id='reroll'>메뉴추천</button> <!-- 추천해주는 버튼 -->
-	<button type='button' id='roulette'>룰렛</button>  <!-- 룰렛내용 바꾸는 버튼 -->
 
+    <div class="choise">
+    <img src='' width='300' height='300' id='img'>
+      <form id='choise'>
+        <label> <input type="radio" name="mg" value="전체" checked />전체 </label>
+        <label> <input type="radio" name="mg" value="육식" />육식+채식 </label>
+        <label> <input type="radio" name="mg" value="채식" />채식 </label>
+        <label> <input type="radio" name="mg" value="간식" />간식 </label>
+        <br />
+        <label> <input type="radio" name="country" value="한식" checked />한식 </label>
+        <label> <input type="radio" name="country" value="중식" />중식</label>
+        <label><input type="radio" name="country" value="일식" />일식 </label>
+        <label> <input type="radio" name="country" value="양식" />양식 </label>
+        <label> <input type="radio" name="country" value="그외" />그외</label>
+        <br />
+      </form>
+      <!-- 메뉴추천으로 나오는 음식칸 -->
 
+      <span id="rdmenu">123456789</span>
+      <!-- 추천해주는 버튼 -->
+      <button type="button" id="reroll">메뉴추천</button>
+      <!-- 룰렛내용 바꾸는 버튼 -->
+      <button type="button" id="roulette">룰렛</button>
+    </div>
     <button class="btn5" onclick="location.href='/menurec/main'">메인페이지 이동</button>
-
+   
     <script src="../js/roulette.js"></script>
   </body>
 </html>

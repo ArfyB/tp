@@ -62,9 +62,12 @@ public class RecipeController
 	@RequestMapping("/list/{page}/{row}")
 	public String list(@PathVariable("page")int page, @PathVariable("row")int row, Model m)
 	{
+		
+		
 		PageHelper.startPage(page,row);
 		PageInfo <Map<String,Object>> pageinfo = new PageInfo<>(rm.AllRecipe());
 		
+		m.addAttribute("recipeh", rs.GetRecipeHit());
 		m.addAttribute("pageinfo", pageinfo);
 		m.addAttribute("pages", rs.pages(pageinfo));  // 페이지이동
 		

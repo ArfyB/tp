@@ -5,8 +5,12 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
+#img{
+  margin-bottom: 3rem;
+}
+
 body {
-  background-image: url("main.jpg");
+  background-image: url("../pics/main.jpg");
   background-size: cover;
   background-position: left left;
 }
@@ -116,7 +120,7 @@ button:active {
   flex-direction: column;
   position: absolute;
   left: 10%;
-  top: 50%;
+  top: 10%;
   transform: translate(-10%, 15%);
 }
 

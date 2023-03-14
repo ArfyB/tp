@@ -7,6 +7,19 @@
 </head>
 <body>
 
+ <div class='h4b'>
+  <h4>최다 조회수 3</h4>
+  </div>
+  <table class='t1'>
+    <tbody>
+      <tr th:each="r : ${recipeh}">
+        <td>[[${r.rnum}]]</td>
+        <td><a th:href="@{/recipe/detail/__${#strings.toString(r.rnum)}__}" th:text="${r.title}"></a></td>
+        <td>[[${r.hits}]]</td>
+      </tr>
+    </tbody>
+  </table>
+
     <table>
         <thead>
             <tr>
@@ -29,21 +42,19 @@
     </table>
 
     <hr>
-
+<div>
     <a href='/recipe/list/1/20'><button type='button'><<</button></a>
-
     <span th:each="idx,iterStat : ${#numbers.sequence(pages.begin,pages.end)}">
         <a th:href="@{/recipe/list/{page}/{row}(page=${idx.intValue()},row=20)}" th:text="${idx}"></a>
     </span>
-
     <a th:href='@{/recipe/list/__${#strings.toString(pageinfo.pages)}__/20}'><button type='button'>>></button></a>
-
+</div>
 
     <hr>
-
+<div>
     <a href='/recipe/add'><button type='button'>추가</button></a>
-    <a href='/recipe/main'><button type='button'>홈</button></a>
-
+    <a href='/menurec/main'><button type='button'>홈</button></a>
+</div>
     <hr>
 
 </body>

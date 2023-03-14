@@ -1,6 +1,7 @@
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 50px; /* 테이블 간격 조정 */
 }
 
 th, td {
@@ -27,4 +28,40 @@ th {
 
 .author {
     width: 20%;
+}
+
+.t1 { /* t1 테이블에도 적용 */
+    margin-bottom: 50px;
+}
+
+.h4b {
+    background-color: #f2f2f2;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.h4b h4 {
+    margin: 0;
+}
+
+button {
+    margin-right: 5px;
+}
+
+button:first-child {
+    margin-left: 0;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+/* 테이블 이외 내용 가운데 정렬 */
+body > *:not(table) {
+  display: flex;
+  justify-content: center;
+}
+
+hr {
+  margin: 50px 0;
 }
