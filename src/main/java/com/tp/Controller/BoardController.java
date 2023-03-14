@@ -80,11 +80,10 @@ public class BoardController
 
 	}
 	
-	@RequestMapping("/detail/{rnum}")
+	@RequestMapping("/detail/{bnum}")
 	public String detail(@PathVariable("bnum") int bnum, Model m)
 	{
-		
-		m.addAttribute("r",bs.GetUphitBoard(bnum));
+		m.addAttribute("b",bs.GetUphitBoard(bnum));
 		return "thymeleaf/board/BoardDetail";
 	}
 	

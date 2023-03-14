@@ -31,10 +31,12 @@
     <!-- 댓글 목록이 여기에 추가됩니다. -->
     <li th:each="c : ${comments}" th:text="${c.content}"></li>
   </ul>
+  
   <form id="comment-form">
     <label for="comment-input">댓글 쓰기:</label>
     <input type="text" id="comment-input" name="content">
     <button type="submit">등록</button>
+    
   </form>
 </div>
 
